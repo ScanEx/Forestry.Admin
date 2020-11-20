@@ -1,8 +1,7 @@
 import T from '@scanex/translations';
 
 T.addText('rus', {
-    admin: {
-        roles: 'Настройка ролей и разрешений',
+    admin: {        
         role: 'Роль пользователя',
         permissions: 'Разрешения',
         save: 'Сохранить',

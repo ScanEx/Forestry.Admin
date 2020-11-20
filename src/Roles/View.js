@@ -12,8 +12,7 @@ export default class View extends Component {
     }
     _render(element) {
         element.classList.add('scanex-forestry-admin-permissions');
-        element.innerHTML = `<div>${translate('admin.roles')}</div>
-        <div>
+        element.innerHTML = `<div>
             <label>${translate('admin.role')}</label>
             <select class="roles"></select>
         </div>
@@ -39,7 +38,8 @@ export default class View extends Component {
             e.stopPropagation();
             let event = document.createEvent('Event');
             event.initEvent('save', false, false);
-            event.detail = this._roles.value;
+            const permissions = Object.keys(this._permissions).filter(id => this._permissions[id].checked);
+            event.detail = {roleID: this._roles.value, permissions};
             this.dispatchEvent(event);
         });
     }

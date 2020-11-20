@@ -30,7 +30,13 @@ export default class Roles extends Controller {
                 } 
             });
             this._view.on('save', async e => {
-
+                const {roleID, permissions} = e.detail;
+                const data = await this.httpPost(`${this._path}/UserPermissionManager/UpdateRoles`, {roleID, permissionsList: permissions});
+                if (data) {
+                    let event = document.createEvent('Event');
+                    event.initEvent('role:save', false, false);
+                    this.dispatchEvent(event);
+                }
             });
             this._view.roles = rs.rolesList;            
         }

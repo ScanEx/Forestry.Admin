@@ -2,7 +2,7 @@
     float: left;
 }
 .scanex-forestry-admin-permissions .content {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 60px);
 }
 .scanex-forestry-admin-permissions .footer .save {
     font-family: sans-serif;
