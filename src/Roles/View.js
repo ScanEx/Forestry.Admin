@@ -13,7 +13,7 @@ export default class View extends Component {
     _render(element) {
         element.classList.add('scanex-forestry-admin-permissions');
         element.innerHTML = `<div>
-            <label>${translate('admin.role')}</label>
+            <label>${translate('admin.roles.role')}</label>
             <select class="roles"></select>
         </div>
         <div class="content">
@@ -22,7 +22,7 @@ export default class View extends Component {
         </div>
         <div class="footer">
             <div class="pager"></div>
-            <button class="save">${translate('admin.save')}</button>
+            <button class="save">${translate('admin.roles.save')}</button>
         </div>`;        
         this._roles = element.querySelector('.roles');
         this._roles.addEventListener('change', this._changeRole.bind(this));

@@ -1,0 +1,9 @@
+.scanex-forestry-admin-users .content {
+    height: calc(100vh - 80px);
+    clear: both;
+}
+.scanex-forestry-admin-users .filter .role,
+.scanex-forestry-admin-users .filter .date,
+.scanex-forestry-admin-users .filter .status {
+    float: left;
+}

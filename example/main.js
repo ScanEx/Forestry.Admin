@@ -8,7 +8,11 @@ window.addEventListener('load', () => {
         e.stopPropagation();
         adm.close();
     });
-    document.getElementById('settings').addEventListener('click', async e => {
+    document.getElementById('users').addEventListener('click', async e => {
+        e.stopPropagation();
+        await adm.users()
+    });
+    document.getElementById('roles').addEventListener('click', async e => {
         e.stopPropagation();
         await adm.roles()
     });

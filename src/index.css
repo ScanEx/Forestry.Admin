@@ -6,3 +6,13 @@
     height: 20px;
     display: inline-block;
 }
+.scanex-forestry-admin .scanex-component-pager .previous,
+.scanex-forestry-admin .scanex-component-pager .next,
+.scanex-forestry-admin .save  {
+    background-color:#008060;
+}
+
+.scanex-forestry-admin .scanex-component-pager .first,
+.scanex-forestry-admin .scanex-component-pager .last  {
+    background-color:#6B707B;
+}
