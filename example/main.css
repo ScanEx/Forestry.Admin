@@ -1,0 +1,26 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#sidebar,
+#output {
+    float: left;
+    height: 100vh;
+}
+
+#sidebar {
+    background-color: #008060;
+    width: 200px;    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;    
+}
+#sidebar > * {
+    padding: 20px 10px 20px 10px;
+    cursor: pointer;
+}
+
+#output {
+    width: calc(100% - 200px);
+}

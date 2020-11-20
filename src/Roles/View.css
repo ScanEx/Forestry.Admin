@@ -1,0 +1,32 @@
+.scanex-forestry-admin-permissions .footer > * {
+    float: left;
+}
+.scanex-forestry-admin-permissions .content {
+    height: calc(100vh - 70px);
+}
+.scanex-forestry-admin-permissions .footer .save {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #FFFFFF;
+    border: none;
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: right;
+}
+.scanex-forestry-admin-permissions .footer .scanex-component-pager .previous,
+.scanex-forestry-admin-permissions .footer .scanex-component-pager .next,
+.scanex-forestry-admin-permissions .footer .save  {
+    background-color:#008060;
+}
+
+.scanex-forestry-admin-permissions .footer .scanex-component-pager .first,
+.scanex-forestry-admin-permissions .footer .scanex-component-pager .last  {
+    background-color:#6B707B;
+}

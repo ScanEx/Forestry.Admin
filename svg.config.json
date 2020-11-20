@@ -1,0 +1,6 @@
+{
+    "src": {    
+        "scanex-forestry-admin-icon": "svg"
+    },
+    "dst": "src/icons.css"
+}
