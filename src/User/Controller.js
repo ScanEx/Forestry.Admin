@@ -25,7 +25,7 @@ export default class User extends Controller {
                 view.on('save', async e => {
                     view.destroy();
                     view = null;                    
-                    console.log('user:', id, ', roles:', e.detail);
+                    
                 });
                 view.name = `${lastName}, ${firstName} ${middleName}`;
                 view.birthDate = new Date(birthDate).toLocaleDateString();
@@ -39,5 +39,8 @@ export default class User extends Controller {
                 }    
             }    
         }
+    }
+    async _save () {
+        
     }
 };

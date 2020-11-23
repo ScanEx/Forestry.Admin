@@ -17,7 +17,7 @@ export default class View extends Component {
             <select class="roles"></select>
         </div>
         <div class="content">
-            <label>${translate('admin.roles.permissions')}</label>
+            <label class="label-content">${translate('admin.roles.permissions')}</label>
             <div class="permissions"></div>
         </div>
         <div class="footer">
