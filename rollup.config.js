@@ -11,6 +11,9 @@ export default [
             format: 'iife',
             sourcemap: true,
             name: 'Admin',
+            globals: {                
+                'moment': 'moment'
+            },            
         },
         plugins: [                      
             resolve({
@@ -32,8 +35,11 @@ export default [
         output: { 
             file: 'dist/forestry-admin.js',
             format: 'cjs',            
-            sourcemap: true,            
-        },        
+            sourcemap: true, 
+            globals: {                
+                'moment': 'moment'
+            },           
+        },       
         plugins: [            
             resolve({
                 customResolveOptions: {

@@ -7,3 +7,6 @@
 .scanex-forestry-admin-users .filter .status {
     float: left;
 }
+.scanex-forestry-admin-users tr[data-id] {
+    cursor: pointer;
+}

@@ -38,7 +38,7 @@ export default class Roles extends Controller {
                     this.dispatchEvent(event);
                 }
             });
-            this._view.roles = rs.rolesList;            
+            this._view.roles = rs.rolesList;
         }
     }    
 }

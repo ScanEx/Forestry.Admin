@@ -3,6 +3,8 @@ import T from '@scanex/translations';
 import './strings.js';
 import {Component, Pager} from '@scanex/components';
 import {format_date_iso} from 'Utils.js';
+import 'pikaday/css/pikaday.css';
+import Pikaday from 'pikaday';
 
 const translate = T.getText.bind(T);
 
@@ -38,29 +40,46 @@ export default class View extends Component {
         <div class="content"></div>        
         <div class="pager"></div>`;
         const btnSearch = element.querySelector('.search');
-        btnSearch.addEventListener('click', this._search.bind(this));
+        btnSearch.addEventListener('click', e => {
+            e.stopPropagation();
+            this._change();
+        });
+        this._name = element.querySelector('.name input');
         this._rolesContainer = element.querySelector('.role select');
         this._content = element.querySelector('.content');
         this._pager = new Pager(element.querySelector('.pager'));
-        this._pager.addEventListener('change', () => {            
-            let event = document.createEvent('Event');
-            event.initEvent('page:change', false, false);
-            event.detail = this._pager.page;
-            this.dispatchEvent(event);
-        });        
-        this._pager.pages = 1;        
+        this._pager.addEventListener('change', this._change.bind(this)); 
+        this._status = element.querySelector('.status select');
+        this._pager.pages = 1;  
+        this._date = new Pikaday({
+            field: element.querySelector('.date input'),
+            format: 'DD.MM.YYYY',
+            yearRange: 20,
+            i18n: {
+                previousMonth : 'Предыдущий месяц',
+                nextMonth     : 'Следующий месяц',
+                months        : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                weekdays      : ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+                weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
+            },
+        }); 
     }
     set page(page) {
         this._pager.page = page;
     }
-    _search(e) {
-        e.stopPropagation();
+    _change() {
         let event = document.createEvent('Event');
-        event.initEvent('search', false, false);
+        event.initEvent('change', false, false);
+        const name = this._name.value;        
+        const role = this._rolesContainer.value;
+        const date = this._date.getDate();        
+        const status = this._status.value;
+        const page = this._pager.page;
+        event.detail = {name, role, date: date && date.toISOString() || '', status, page};
         this.dispatchEvent(event);
-    }    
-    set count(count = 1) {
-        this._pager.pages = Math.ceil(count / this._pageSize);
+    }
+    set count(count) {
+        this._pager.pages = count && Math.ceil(count / this._pageSize) || 1;
     }
     set roles(roles) {
         this._roles = roles;
@@ -81,7 +100,7 @@ export default class View extends Component {
             </thead>
             <tbody>
             ${users.map(({userID, userName, created, isLock, roleList}) => {
-                return `<tr>
+                return `<tr data-id="${userID}">
                     <td>${userID}</td>
                     <td>${userName}</td>
                     <td>${format_date_iso(created)}</td>
@@ -91,21 +110,15 @@ export default class View extends Component {
             }).join('')}
             </tbody>
         </table>`;
-        // const rows = this._permissionsContainer.querySelectorAll('[data-id]');
-        // for(let row of rows) {            
-        //     row.addEventListener('click', e => {
-        //         e.stopPropagation();
-        //         const id = row.getAttribute('data-id');
-        //         let icon = row.querySelector('.scanex-forestry-admin-icon');
-        //         const checked = !icon.classList.contains('active');
-        //         if (checked) {
-        //             icon.classList.add('active');
-        //         }
-        //         else {
-        //             icon.classList.remove('active');
-        //         }
-        //         this._permissions[id].checked = checked;
-        //     });
-        // }
+        const rows = this._content.querySelectorAll('[data-id]');
+        for(let row of rows) {            
+            row.addEventListener('click', e => {
+                e.stopPropagation();                
+                let event = document.createEvent('Event');
+                event.initEvent('user:select', false, false);                
+                event.detail = row.getAttribute('data-id');
+                this.dispatchEvent(event);
+            });
+        }
     }
 };

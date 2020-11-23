@@ -1,0 +1,28 @@
+.scanex-forestry-admin-user {
+    background-color: #FFFFFF;
+}
+.scanex-forestry-admin-user .content > table > tbody > tr > td {
+    vertical-align: top;
+}
+.scanex-forestry-admin-user ul.roles {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.scanex-forestry-admin-user ul.roles li {
+    cursor: pointer;
+    white-space: nowrap;
+}
+.scanex-forestry-admin-user ul.roles li > *,
+.scanex-forestry-admin-user .locked > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.scanex-forestry-admin-user .scanex-forestry-admin-icon.user {
+    width: 130px;
+    height: 130px;
+}
+.scanex-forestry-admin-user td.label,
+.scanex-forestry-admin-user td.value {
+    white-space: nowrap;
+}

@@ -3,7 +3,7 @@ import Admin from 'index.js';
 
 window.addEventListener('load', () => {    
     const container = document.getElementById('output');
-    const adm = new Admin({container});
+    const adm = new Admin(container);
     document.getElementById('main').addEventListener('click', e => {
         e.stopPropagation();
         adm.close();
