@@ -1,9 +1,27 @@
-.scanex-forestry-admin-permissions .footer > * {
+.scanex-forestry-admin-permissions .footer>* {
     float: left;
 }
+
 .scanex-forestry-admin-permissions .content {
     height: calc(100vh - 60px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    margin-bottom: 60px;
 }
+
+.scanex-forestry-admin-permissions .content::-webkit-scrollbar {
+    width: 0 !important
+}
+
+.scanex-forestry-admin-permissions .content {
+    overflow: -moz-scrollbars-none;
+}
+
+.scanex-forestry-admin-permissions .content {
+    -ms-overflow-style: none;
+}
+
 .scanex-forestry-admin-permissions .footer .save {
     font-family: sans-serif;
     font-style: normal;
@@ -19,4 +37,89 @@
     margin-left: 10px;
     margin-right: 10px;
     float: right;
+}
+
+.scanex-forestry-admin-permissions {
+    background: #f2f2f2;
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 32px 32px 32px 50px;
+    box-sizing: border-box;
+}
+
+.scanex-forestry-admin-permissions label.label-roles {
+    display: block;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    color: #6B707B;
+    margin-bottom: 10px;
+}
+
+.scanex-forestry-admin-permissions select.roles {
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background: transparent;
+    width: 100%;
+    min-width: 343px;
+    max-width: 343px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 15px;
+    margin-bottom: 32px;
+    outline: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #000000;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 5L0 7.57103e-07L8 0L4 5Z' fill='%23808080'/%3E%3C/svg%3E");
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: 315px center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}
+
+
+.scanex-forestry-admin-permissions label.label-content {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    color: #6B707B;
+    margin-bottom: 40px;
+    display: block;
+    text-transform: capitalize;
+}
+
+.scanex-forestry-admin-permissions .permissions table {
+    width: 100%;
+}
+
+.scanex-forestry-admin-permissions .permissions table td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 48px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #000000;
+}
+
+.scanex-forestry-admin-permissions .permissions table td:nth-child(2) {
+    padding-left: 17px;
+    cursor: pointer;
 }
