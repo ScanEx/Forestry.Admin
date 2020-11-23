@@ -13,7 +13,7 @@ export default class View extends Component {
     _render(element) {
         element.classList.add('scanex-forestry-admin-permissions');
         element.innerHTML = `<div>
-            <label>${translate('admin.roles.role')}</label>
+            <label class="label-roles">${translate('admin.roles.role')}</label>
             <select class="roles"></select>
         </div>
         <div class="content">
