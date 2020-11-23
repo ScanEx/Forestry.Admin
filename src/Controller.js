@@ -5,15 +5,15 @@ const translate = T.getText.bind(T);
 
 const NOTIFY_TIMEOUT = 5000;
 
-export default class Controller extends EventTarget {
+class Controller extends EventTarget {
     constructor({notify}) {
         super();
         this._notify = notify;        
     }
-    _status(response) {
+    _status(jsonResponse, response) {
         switch (response.status) {
-            case 200:
-                return response.json();
+            case 200:                            
+                return jsonResponse ? response.json() : true;
             case 401:
                 this._notify.error(translate('error.unauthorized'), NOTIFY_TIMEOUT);
                 return;
@@ -47,7 +47,7 @@ export default class Controller extends EventTarget {
         event.initEvent('load:stop', false, false);
         this.dispatchEvent(event);
     }
-    httpPost (url, options) {
+    httpPost (url, options, jsonResponse = true) {
         return new Promise(resolve => {
             this._start();
             fetch(url, {
@@ -58,19 +58,19 @@ export default class Controller extends EventTarget {
                 },
                 body: JSON.stringify(options)
             })
-            .then(this._status.bind(this))
+            .then(this._status.bind(this, jsonResponse))
             .then(data => {
                 this._stop();
                 resolve(data);
             })
             .catch(e => {
                 this._stop();
-                resolve();
+                resolve(false);
             });            
         });           
     }    
 
-    postData(url, fd) {
+    postData(url, fd, jsonResponse = true) {
         return new Promise(resolve => {
             this._start();
             fetch(url, {
@@ -78,19 +78,19 @@ export default class Controller extends EventTarget {
                 credentials: 'include',            
                 body: fd
             })
-            .then(this._status.bind(this))
+            .then(this._status.bind(this, jsonResponse))
             .then(data => {
                 this._stop();
                 resolve(data);
             })
             .catch(e => {
                 this._stop();
-                resolve();
+                resolve(false);
             });            
         }); 
     }
 
-    httpGet(url, options = {}) {        
+    httpGet(url, options = {}, jsonResponse = true) {
         return new Promise(resolve => {
             this._start();
             const args = Object.keys(options);
@@ -99,17 +99,19 @@ export default class Controller extends EventTarget {
                 credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json'
-                },            
+                },
             })
-            .then(this._status.bind(this))
+            .then(this._status.bind(this, jsonResponse))
             .then(data => {
                 this._stop();
-                resolve(data);
+                resolve(data || true);
             })
             .catch(e => {
                 this._stop();
-                resolve();
+                resolve(false);
             });
         });
     }  
-};
+}
+
+export {Controller, NOTIFY_TIMEOUT};

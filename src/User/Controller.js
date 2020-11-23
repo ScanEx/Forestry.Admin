@@ -1,5 +1,8 @@
 import View from './View.js';
-import Controller from 'Controller.js';
+import {Controller, NOTIFY_TIMEOUT} from 'Controller.js';
+import T from '@scanex/translations';
+
+const translate = T.getText.bind(T);
 
 export default class User extends Controller {
     constructor({container, notify, path}) {
@@ -24,8 +27,12 @@ export default class User extends Controller {
                 });
                 view.on('save', async e => {
                     view.destroy();
-                    view = null;                    
-                    
+                    view = null; 
+                    const roles = e.detail;
+                    const ok = await this.httpPost(`${this._path}/UserManager/UpdateUser`, {userID: id, userRoles: roles}, false);
+                    if (ok) {
+                        this._notify.info(translate('info.ok'), NOTIFY_TIMEOUT);
+                    }
                 });
                 view.name = `${lastName}, ${firstName} ${middleName}`;
                 view.birthDate = new Date(birthDate).toLocaleDateString();
@@ -36,11 +43,8 @@ export default class User extends Controller {
                         roles[id].checked = true;
                     });
                     view.roles = roles;
-                }    
+                }
             }    
         }
-    }
-    async _save () {
-        
     }
 };

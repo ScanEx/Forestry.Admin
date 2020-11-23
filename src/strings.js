@@ -1,6 +1,9 @@
 import T from '@scanex/translations';
 
 T.addText('rus', {
+    info: {
+        ok: 'Операция выполнена успешно.'
+    },
     error: {
         unauthorized: 'Не авторизован',
         forbidden: 'Нет разрешения',

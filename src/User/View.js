@@ -87,13 +87,15 @@ export default class User extends Dialog {
         btnSave.addEventListener('click', e => {
             let event = document.createEvent('Event');
             event.initEvent('save', false, false);
-            event.detail = Object.keys(this._roles).reduce((a,id) => {
-                const {checked, label} = this._roles[id];
-                if (checked) {
-                    a[id] = label;
+            const roles = Object.keys(this._roles).reduce((a,id) => {
+                const {checked} = this._roles[id];
+                const k = parseInt(id, 10);
+                if (checked && !isNaN(k)) {
+                    a.push(k);
                 }
                 return a;
-            }, {});
+            }, []);
+            event.detail = roles;
             this.dispatchEvent(event);
         });
 

@@ -1,8 +1,8 @@
 # API
-* Объект: Map
+* Объект: AdminUI
   * Инициализация:
 	```js
-	var map = new Admin(container, {path});
+	var map = new AdminUI(container, {path});
 	```
   	* container - DOM-элемент, содержащий карту	  	
   	* path - путь к API (значение по умолчанию '/adm')
@@ -17,8 +17,11 @@
 		```
 	* закрыть открытое представление
 		```js
-		close();
+		close();		
 		```
+  * События:  
+  	* начало длительной операции ``loading:start``
+  	* конец длительной операции ``loading:stop``
 # Пример
 ```js
 	import './forestry-admin.css';
@@ -29,7 +32,15 @@
         let container = document.getElementById('admin');
         
         // инициализация
-        let admin = new AdminUI(container);			
+		let admin = new AdminUI(container);
+		
+		admin.addEventListener('loading:start', () => {
+			// показать начало длительной операции
+		});
+
+		admin.addEventListener('loading:stop', () => {
+			// завершить длительную операцию
+		});
         
         // показать список ролей и разрешений
         await admin.roles();		

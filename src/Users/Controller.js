@@ -1,5 +1,5 @@
 import View from './View.js';
-import Controller from 'Controller.js';
+import {Controller} from 'Controller.js';
 
 export default class Users extends Controller {
     constructor({container, notify, path}) {

@@ -1,5 +1,8 @@
 import View from './View.js';
-import Controller from 'Controller.js';
+import {Controller, NOTIFY_TIMEOUT} from 'Controller.js';
+import T from '@scanex/translations';
+
+const translate = T.getText.bind(T);
 
 export default class Roles extends Controller {
     constructor({container, notify, path}) {
@@ -25,20 +28,21 @@ export default class Roles extends Controller {
                         role.permissionsList.forEach(id => {
                             permissions[id].checked = true;
                         });
-                        this._view.permissions = permissions;
-                    }
+                        this._view.permissions = permissions;                        
+                    }                    
                 } 
             });
             this._view.on('save', async e => {
                 const {roleID, permissions} = e.detail;
-                const data = await this.httpPost(`${this._path}/UserPermissionManager/UpdateRoles`, {roleID, permissionsList: permissions});
-                if (data) {
+                const ok = await this.httpPost(`${this._path}/UserPermissionManager/UpdateRoles`, {roleID, permissionsList: permissions}, false);
+                if (ok) {
                     let event = document.createEvent('Event');
                     event.initEvent('role:save', false, false);
                     this.dispatchEvent(event);
+                    this._notify.info(translate('info.ok'), NOTIFY_TIMEOUT);
                 }
             });
             this._view.roles = rs.rolesList;
         }
     }    
-}
+};

@@ -89,14 +89,14 @@ export default class View extends Component {
             });
         }
     }
-    set roles (roles) {
-        this._roles.innerHTML = Object.keys(roles).map(id => `<option value="${id}">${roles[id]}</option>`).join('');
-        this._changeRole();
+    set roles (roles) {        
+        this._roles.innerHTML = Object.keys(roles).map(id => `<option value="${id}">${roles[id]}</option>`).join('');        
+        this._changeRole();        
     }
     set permissions(permissions) {        
         this._permissions = permissions;
         this._pager.pages = Math.ceil(Object.keys(permissions).length / this._pageSize);
-        this._pager.page = this._page || 1;
+        this._pager.page = 1;
     } 
     _changeRole() {
         let event = document.createEvent('Event');
