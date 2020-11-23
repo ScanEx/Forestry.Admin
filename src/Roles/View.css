@@ -41,7 +41,6 @@
 
 .scanex-forestry-admin-permissions {
     background: #f2f2f2;
-    background: #f2f2f2;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -103,10 +102,14 @@
     margin-bottom: 40px;
     display: block;
     text-transform: capitalize;
+    position: fixed;
+    width: 100%;
+    background: #f2f2f2;
 }
 
 .scanex-forestry-admin-permissions .permissions table {
     width: 100%;
+    margin-top: 50px;
 }
 
 .scanex-forestry-admin-permissions .permissions table td {
@@ -117,6 +120,12 @@
     font-weight: normal;
     font-size: 12px;
     color: #000000;
+}
+
+.scanex-forestry-admin-permissions .permissions table td:nth-child(1) {
+    min-width: 32px;
+    width: 32px;
+    max-width: 32px;
 }
 
 .scanex-forestry-admin-permissions .permissions table td:nth-child(2) {
