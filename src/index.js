@@ -15,6 +15,9 @@ export default class Admin {
         this._roles = new Roles({container: this._container, notify: this._notify, path});
         this._users = new Users({container: this._container, notify: this._notify, path});
         this._user = new User({container: this._container, notify: this._notify, path});
+        this._user.on('updated', async () => {
+            await this.users();
+        });
         this._users.on('click', async e => {
             const id = e.detail;
             await this._user.open(id);

@@ -10,6 +10,7 @@ export default class User extends Dialog {
         super({title: translate('admin.user.title'), modal: true, top: 200, left: 400});
         this._userID = id;
         this._element.classList.add('scanex-forestry-admin-user');
+        this._locked = false;
         this.content.innerHTML = `<table  cellpadding="0" cellspacing="0">
             <tr>
                 <td>                    
@@ -70,7 +71,8 @@ export default class User extends Dialog {
         </table>`;
         let btnBlock = this.content.querySelector('.locked');
         btnBlock.addEventListener('click', e => {
-            e.stopPropagation();
+            e.stopPropagation();             
+            this.locked = !this._locked;
         });
         this._rolesContainer = this.content.querySelector('.roles');
 
@@ -95,7 +97,7 @@ export default class User extends Dialog {
                 }
                 return a;
             }, []);
-            event.detail = roles;
+            event.detail = {roles, locked: this._locked};
             this.dispatchEvent(event);
         });
 
@@ -108,7 +110,14 @@ export default class User extends Dialog {
 
     }    
     set locked (locked) {
-
+        this._locked = locked;
+        let icon = this.content.querySelector('.locked .box');        
+        if (this._locked) {
+            icon.classList.add('active');
+        }
+        else {
+            icon.classList.remove('active');
+        }
     }
     set name(name) {
         this._name.innerText = name;

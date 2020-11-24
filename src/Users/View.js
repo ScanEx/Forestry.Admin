@@ -17,7 +17,7 @@ export default class View extends Component {
         element.classList.add('scanex-forestry-admin-users');
         element.innerHTML = `<div class="filter">
             <div class="name">
-                <input type="text" placeholder="Фамилия, Имя, отчество">
+                <input type="text" placeholder="${translate('admin.users.name')}">
                 <button class="search">${translate('admin.users.search')}</button>
             </div>
             <div class="role-date-status">
@@ -30,7 +30,7 @@ export default class View extends Component {
                     <input type="text">
                 </div>
                 <div class="status">                
-                    <label>${translate('admin.users.status')}</label>                
+                    <label>${translate('admin.users.status')}</label>
                     <select>
                         <option value=""></option>
                         <option value="blocked">${translate('admin.users.blocked')}</option>
@@ -44,13 +44,15 @@ export default class View extends Component {
         const btnSearch = element.querySelector('.search');
         btnSearch.addEventListener('click', e => {
             e.stopPropagation();
-            this._change();
+            this._change(true);
         });
         this._name = element.querySelector('.name input');
         this._rolesContainer = element.querySelector('.role select');
         this._content = element.querySelector('.content');
         this._pager = new Pager(element.querySelector('.pager'));
-        this._pager.addEventListener('change', this._change.bind(this)); 
+        this._pager.addEventListener('change', () => {
+            this._change(false);
+        }); 
         this._status = element.querySelector('.status select');
         this._pager.pages = 1;  
         this._date = new Pikaday({
@@ -69,7 +71,7 @@ export default class View extends Component {
     set page(page) {
         this._pager.page = page;
     }
-    _change() {
+    _change(filtered) {
         let event = document.createEvent('Event');
         event.initEvent('change', false, false);
         const name = this._name.value;        
@@ -77,11 +79,11 @@ export default class View extends Component {
         const date = this._date.getDate();        
         const status = this._status.value;
         const page = this._pager.page;
-        event.detail = {name, role, date: date && date.toISOString() || '', status, page};
+        event.detail = {name, role, date: date && date.toISOString() || '', status, page, filtered};
         this.dispatchEvent(event);
     }
     set count(count) {
-        this._pager.pages = count && Math.ceil(count / this._pageSize) || 1;
+        this._pager.pages = count && Math.ceil(count / this._pageSize) || 1;        
     }
     set roles(roles) {
         this._roles = roles;

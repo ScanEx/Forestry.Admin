@@ -19,7 +19,7 @@ export default class User extends Controller {
             }, {});
             const data = await this.httpGet(`${this._path}/UserManager/GetUser`, {UserID: id});
             if (data && data.userData) {
-                const {birthDate, email, firstName, middleName, lastName, inn, } = data.userData;
+                const {birthDate, email, firstName, middleName, lastName, inn, isLock} = data.userData;
                 let view = new View(id);
                 view.on('close', () => {
                    view.destroy();
@@ -28,16 +28,20 @@ export default class User extends Controller {
                 view.on('save', async e => {
                     view.destroy();
                     view = null; 
-                    const roles = e.detail;
-                    const ok = await this.httpPost(`${this._path}/UserManager/UpdateUser`, {userID: id, userRoles: roles}, false);
+                    const {roles, locked} = e.detail;
+                    const ok = await this.httpPost(`${this._path}/UserManager/UpdateUser`, {userID: id, userRoles: roles, isLock: locked}, false);
                     if (ok) {
                         this._notify.info(translate('info.ok'), NOTIFY_TIMEOUT);
+                        let event = document.createEvent('Event');
+                        event.initEvent('updated', false, false);
+                        this.dispatchEvent(event);
                     }
                 });
                 view.name = `${lastName}, ${firstName} ${middleName}`;
                 view.birthDate = new Date(birthDate).toLocaleDateString();
                 view.email = email;
                 view.itn = inn;
+                view.locked = isLock;
                 if (data.userRoles){                    
                     Object.keys(data.userRoles).forEach(id => {
                         roles[id].checked = true;

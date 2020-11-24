@@ -14,7 +14,7 @@ export default class Roles extends Controller {
         const rs = await this.httpGet(`${this._path}/UserPermissionManager/GetRolesList`);
         if (rs && rs.rolesList) {
             this._container.innerHTML = '';
-            this._view = new View(this._container, {pageSize: 10});
+            this._view = new View(this._container, {pageSize: 20});
             this._view.on('role:change', async e => {
                 const RoleID = e.detail;
                 const ps = await this.httpGet(`${this._path}/UserPermissionManager/GetPermissionsList`);

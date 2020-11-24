@@ -14,7 +14,7 @@ export default class Users extends Controller {
             this._container.innerHTML = '';
             this._view = new View(this._container, {pageSize: this._pageSize});
             this._view.on('change', async e => {
-                const {name, role, date, status, page} = e.detail;
+                const {name, role, date, status, page, filtered} = e.detail;
                 const data = await this.httpGet(`${this._path}/UserManager/GetUserList`, {
                     StartPoint: (page - 1) * this._pageSize + 1,
                     SizeList: this._pageSize,
@@ -27,6 +27,9 @@ export default class Users extends Controller {
                     const {count, userList} = data;
                     this._view.count = count;
                     this._view.users = userList;
+                    if (filtered) {
+                        this._view.page = 1;
+                    }
                 }
             });
             this._view.on('user:select', e => {
