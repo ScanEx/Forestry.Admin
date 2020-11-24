@@ -1,6 +1,12 @@
 .scanex-forestry-admin-users .content {
     height: calc(100vh - 80px);
     clear: both;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    min-width: 946px;
 }
 .scanex-forestry-admin-users .filter .role,
 .scanex-forestry-admin-users .filter .date,
@@ -9,4 +15,247 @@
 }
 .scanex-forestry-admin-users tr[data-id] {
     cursor: pointer;
+}
+.scanex-component.scanex-forestry-admin-users {
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 32px 32px 32px 50px;
+    box-sizing: border-box;
+}
+.scanex-component.scanex-forestry-admin-users .filter {
+    width: 100%;
+}
+.scanex-component.scanex-forestry-admin-users .name {
+    width: 100%;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 23px;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"] {
+    width: 80%;
+    min-width: 946px;
+    height: 48px;
+    outline: none;
+    min-height: 48px;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.75 17.5C3.925 17.5 0 13.575 0 8.75C0 3.925 3.925 0 8.75 0C13.575 0 17.5 3.925 17.5 8.75C17.5 13.575 13.575 17.5 8.75 17.5ZM8.75 2.5C5.30375 2.5 2.5 5.30375 2.5 8.75C2.5 12.1962 5.30375 15 8.75 15C12.1962 15 15 12.1962 15 8.75C15 5.30375 12.1962 2.5 8.75 2.5Z' fill='%236B707B'/%3E%3Cpath d='M19.6337 17.8663L16.6425 14.875C16.1288 15.5362 15.5362 16.1288 14.875 16.6425L17.8663 19.6337C18.11 19.8775 18.43 20 18.75 20C19.07 20 19.39 19.8775 19.6337 19.6337C20.1225 19.145 20.1225 18.355 19.6337 17.8663Z' fill='%236B707B'/%3E%3C/svg%3E");
+    background-size: 18px 18px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    padding: 0 44px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+    font-family: Arial;
+    -webkit-transition: all 0.33s ease;
+    -o-transition: all 0.33s ease;
+    transition: all 0.33s ease;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus {
+    background-color: #FFF;
+    background-image: none;
+    -webkit-transition: background 0.33s ease;
+    -o-transition: background 0.33s ease;
+    transition: background 0.33s ease;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.6);
+    -webkit-transition: all 0.23s ease;
+    transition: all 0.23s ease;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]::-moz-placeholder {
+    /* Firefox 19+ */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.6);
+    -moz-transition: all 0.23s ease;
+    transition: all 0.23s ease;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:-ms-input-placeholder {
+    /* IE 10+ */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.6);
+    -ms-transition: all 0.23s ease;
+    transition: all 0.23s ease;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:-moz-placeholder {
+    /* Firefox 18- */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.6);
+    -moz-transition: all 0.23s ease;
+    transition: all 0.23s ease;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: transparent;
+    /*display: none;*/
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus::-moz-placeholder {
+    /* Firefox 19+ */
+    color: transparent;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus:-ms-input-placeholder {
+    /* IE 10+ */
+    color: transparent;
+}
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus:-moz-placeholder {
+    /* Firefox 18- */
+    color: transparent;
+}
+.scanex-component.scanex-forestry-admin-users button.search {
+    width: 150px;
+    height: 40px;
+    min-width: 150px;
+    background: #6B707B;
+    border-radius: 6px;
+    margin-left: 23px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.scanex-component.scanex-forestry-admin-users .role-date-status {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    min-width: 946px;
+}
+.scanex-component.scanex-forestry-admin-users .role,
+.scanex-component.scanex-forestry-admin-users .date,
+.scanex-component.scanex-forestry-admin-users .status {
+    width: 30%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.scanex-component.scanex-forestry-admin-users .role label,
+.scanex-component.scanex-forestry-admin-users .date label,
+.scanex-component.scanex-forestry-admin-users .status label {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    color: #6B707B;
+    margin-bottom: 10px;
+}
+.scanex-component.scanex-forestry-admin-users .role select,
+.scanex-component.scanex-forestry-admin-users .status select {
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background: transparent;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 15px;
+    outline: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #000000;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='8' height='5' viewBox='0 0 8 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 5L0 7.57103e-07L8 0L4 5Z' fill='%23808080'/%3E%3C/svg%3E");
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: calc(100% - 23px) center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.scanex-component.scanex-forestry-admin-users .date input {
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background: transparent;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 15px;
+    outline: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #000000;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.125 3.125H1.875C1.185 3.125 0.625 3.685 0.625 4.375V18.125C0.625 18.815 1.185 19.375 1.875 19.375H18.125C18.815 19.375 19.375 18.815 19.375 18.125V4.375C19.375 3.685 18.815 3.125 18.125 3.125Z' stroke='%23067A57' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M0.625 6.875H19.375' stroke='%23067A57' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.625 0.625V3.125' stroke='%23067A57' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.375 0.625V3.125' stroke='%23067A57' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6.875 9.375V16.875' stroke='%23067A57' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.125 9.375V16.875' stroke='%23067A57' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.125 13.125H16.875' stroke='%23067A57' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-position: calc(100% - 23px) center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.scanex-component.scanex-forestry-admin-users .content table {
+    border-collapse: collapse;
+}
+.scanex-component.scanex-forestry-admin-users .content table thead {
+    position: fixed;
+    background: #f2f2f2;
+}
+.scanex-component.scanex-forestry-admin-users .content table thead th {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6B707B;
+    opacity: 0.65;
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    text-align: left;
+}
+.scanex-component.scanex-forestry-admin-users .content table tbody {
+    border-top: 40px solid transparent;
+}
+.scanex-component.scanex-forestry-admin-users .content table tbody td {
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    height: 60px;
+    min-height: 60px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    color: #000000;
 }

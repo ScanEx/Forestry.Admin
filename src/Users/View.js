@@ -17,24 +17,26 @@ export default class View extends Component {
         element.classList.add('scanex-forestry-admin-users');
         element.innerHTML = `<div class="filter">
             <div class="name">
-                <input type="text">
+                <input type="text" placeholder="Фамилия, Имя, отчество">
                 <button class="search">${translate('admin.users.search')}</button>
             </div>
-            <div class="role">
-                <label>${translate('admin.users.userRole')}</label>
-                <select></select>
-            </div>
-            <div class="date">
-                <label>${translate('admin.users.dateAfter')}</label>
-                <input type="text">
-            </div>
-            <div class="status">                
-                <label>${translate('admin.users.status')}</label>                
-                <select>
-                    <option value=""></option>
-                    <option value="blocked">${translate('admin.users.blocked')}</option>
-                    <option value="verified">${translate('admin.users.verified')}</option>
-                </select>
+            <div class="role-date-status">
+                <div class="role">
+                    <label>${translate('admin.users.userRole')}</label>
+                    <select></select>
+                </div>
+                <div class="date">
+                    <label>${translate('admin.users.dateAfter')}</label>
+                    <input type="text">
+                </div>
+                <div class="status">                
+                    <label>${translate('admin.users.status')}</label>                
+                    <select>
+                        <option value=""></option>
+                        <option value="blocked">${translate('admin.users.blocked')}</option>
+                        <option value="verified">${translate('admin.users.verified')}</option>
+                    </select>
+                </div>
             </div>
         </div>        
         <div class="content"></div>        
