@@ -48,15 +48,7 @@ export default class User extends Dialog {
                             <td class="value">
                                 <label></label>
                             </td>
-                        </tr>
-                        <tr class="itn">
-                            <td class="label">
-                                <label>${translate('admin.user.itn')}</label>
-                            </td>
-                            <td class="value">
-                                <label></label>
-                            </td>
-                        </tr>
+                        </tr>                        
                         <tr class="phone">
                             <td class="label">
                                 <label>${translate('admin.user.phone')}</label>
@@ -65,10 +57,26 @@ export default class User extends Dialog {
                                 <label></label>
                             </td>
                         </tr>
-                    </table>
+                    </table>                    
                 </td>
             </tr>            
-        </table>`;
+        </table>
+        <div class="organization">
+            <div class="org">
+                <div class="label">${translate('admin.user.org')}</div>
+                <div class="value"></div>
+            </div>
+            <div>
+                <div class="itn">
+                    <div class="label">${translate('admin.user.itn')}</div>
+                    <div class="value"></div>
+                </div>
+                <div class="ogrn">
+                    <div class="label">${translate('admin.user.ogrn')}</div>
+                    <div class="value"></div>
+                </div>
+            </div>
+        </div>`;
         let btnBlock = this.content.querySelector('.locked');
         btnBlock.addEventListener('click', e => {
             e.stopPropagation();             
@@ -79,8 +87,10 @@ export default class User extends Dialog {
         this._name = this.content.querySelector('.name .value label');
         this._dob = this.content.querySelector('.dob .value label');
         this._email = this.content.querySelector('.email .value label');
-        this._itn = this.content.querySelector('.itn .value label');
+        this._itn = this.content.querySelector('.itn .value');
         this._phone = this.content.querySelector('.phone .value label');
+        this._org = this.content.querySelector('.org .value');
+        this._ogrn = this.content.querySelector('.ogrn .value');
 
         this.footer.innerHTML = `<button class="save">${translate('admin.user.save')}</button>
         <button class="cancel">${translate('admin.user.cancel')}</button>`;
@@ -130,6 +140,12 @@ export default class User extends Dialog {
     }
     set itn(itn) {
         this._itn.innerText = itn;
+    }
+    set ogrn(ogrn) {
+        this._ogrn.innerText = ogrn;
+    }
+    set org(org) {
+        this._org.innerText = org;
     }
     set phone(phone) {
         this._phone.innerText = phone;
