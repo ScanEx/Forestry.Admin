@@ -74,7 +74,7 @@ export default class User extends Dialog {
                 <div class="label">${translate('admin.user.org')}</div>
                 <div class="value"></div>
             </div>
-            <div>
+            <div class="itn-ogrn">
                 <div class="itn">
                     <div class="label">${translate('admin.user.itn')}</div>
                     <div class="value"></div>

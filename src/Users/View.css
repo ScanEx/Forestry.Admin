@@ -7,6 +7,7 @@
     margin-bottom: 60px;
     margin-top: 40px;
     min-width: 946px;
+    max-width: 1360px;
 }
 .scanex-forestry-admin-users .filter .role,
 .scanex-forestry-admin-users .filter .date,
@@ -237,18 +238,19 @@
     line-height: 20px;
     color: #6B707B;
     opacity: 0.65;
-    width: 300px;
-    max-width: 300px;
-    min-width: 300px;
+    width: 223px;
+    max-width: 223px;
+    min-width: 223px;
     text-align: left;
+    padding: 0 5px;
 }
 .scanex-component.scanex-forestry-admin-users .content table tbody {
     border-top: 40px solid transparent;
 }
 .scanex-component.scanex-forestry-admin-users .content table tbody td {
-    width: 300px;
-    max-width: 300px;
-    min-width: 300px;
+    width: 223px;
+    max-width: 223px;
+    min-width: 223px;
     height: 60px;
     min-height: 60px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -258,4 +260,5 @@
     font-size: 12px;
     line-height: 24px;
     color: #000000;
+    padding: 0 5px;
 }
