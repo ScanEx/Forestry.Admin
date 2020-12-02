@@ -28,7 +28,7 @@ export default class View extends Component {
                 <div class="date">
                     <label>${translate('admin.users.dateAfter')}</label>
                     <input type="text">
-                </div>
+                </div>                
                 <div class="status">                
                     <label>${translate('admin.users.status')}</label>
                     <select>
@@ -36,7 +36,7 @@ export default class View extends Component {
                         <option value="blocked">${translate('admin.users.blocked')}</option>
                         <option value="verified">${translate('admin.users.verified')}</option>
                     </select>
-                </div>
+                </div>                
             </div>
         </div>        
         <div class="content"></div>        
@@ -99,16 +99,18 @@ export default class View extends Component {
                     <th>${translate('admin.users.name')}</th>
                     <th>${translate('admin.users.date')}</th>
                     <th>${translate('admin.users.status')}</th>
-                    <th>${translate('admin.users.role')}</th>
+                    <th>${translate('admin.users.org')}</th>
+                    <th>${translate('admin.users.role')}</th>                    
                 </tr>
             </thead>
             <tbody>
-            ${users.map(({userID, userName, created, isLock, roleList}) => {
+            ${users.map(({userID, userName, created, isLock, organizationName, roleList}) => {
                 return `<tr data-id="${userID}">
                     <td>${userID}</td>
                     <td>${userName}</td>
                     <td>${format_date_iso(created)}</td>
                     <td>${translate(isLock ? 'admin.users.blocked' : 'admin.users.verified')}</td>
+                    <td>${organizationName}</td>
                     <td>${roleList.map(id => this._roles[id]).join(',')}</td>
                 </tr>`;
             }).join('')}
