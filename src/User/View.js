@@ -57,6 +57,14 @@ export default class User extends Dialog {
                                 <label></label>
                             </td>
                         </tr>
+                        <tr class="snils">
+                            <td class="label">
+                                <label>${translate('admin.user.snils')}</label>
+                            </td>
+                            <td class="value">
+                                <label></label>
+                            </td>
+                        </tr>
                     </table>                    
                 </td>
             </tr>            
@@ -87,6 +95,7 @@ export default class User extends Dialog {
         this._name = this.content.querySelector('.name .value label');
         this._dob = this.content.querySelector('.dob .value label');
         this._email = this.content.querySelector('.email .value label');
+        this._snils = this.content.querySelector('.snils .value label');
         this._itn = this.content.querySelector('.itn .value');
         this._phone = this.content.querySelector('.phone .value label');
         this._org = this.content.querySelector('.org .value');
@@ -146,6 +155,9 @@ export default class User extends Dialog {
     }
     set org(org) {
         this._org.innerText = org;
+    }
+    set snils(snils) {
+        this._snils.innerText = snils;
     }
     set phone(phone) {
         this._phone.innerText = phone;

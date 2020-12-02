@@ -19,7 +19,7 @@ export default class User extends Controller {
             }, {});
             const data = await this.httpGet(`${this._path}/UserManager/GetUser`, {UserID: id});
             if (data && data.userData) {
-                const {birthDate, email, firstName, middleName, lastName, isLock, businessEntity: {fullName, name, ogrn, inn}} = data.userData;
+                const {birthDate, email, firstName, middleName, lastName, isLock, snils, businessEntity: {fullName, name, ogrn, inn}} = data.userData;
                 let view = new View(id);
                 view.on('close', () => {
                    view.destroy();
@@ -42,6 +42,7 @@ export default class User extends Controller {
                 view.email = email;
                 view.itn = inn;
                 view.org = fullName;
+                view.snils = snils;
                 view.ogrn = ogrn;
                 view.locked = isLock;
                 if (data.userRoles){                    
