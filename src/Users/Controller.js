@@ -2,8 +2,8 @@ import View from './View.js';
 import {Controller} from 'Controller.js';
 
 export default class Users extends Controller {
-    constructor({container, notify, path}) {
-        super({notify});
+    constructor({container, notify, loading, path}) {
+        super({notify, loading});
         this._path = path;
         this._container = container;
         this._pageSize = 25; 

@@ -34,7 +34,7 @@ export default [
         input: 'src/index.js',
         output: { 
             file: 'dist/forestry-admin.js',
-            format: 'cjs',            
+            format: 'cjs',
             sourcemap: true, 
             globals: {                
                 'moment': 'moment'

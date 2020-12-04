@@ -1,9 +1,15 @@
 import './main.css';
-import Admin from 'index.js';
+import AdminUI from 'index.js';
 
 window.addEventListener('load', () => {    
     const container = document.getElementById('output');
-    const adm = new Admin(container);
+    const adm = new AdminUI(container);
+    adm.addEventListener('loading:start', () => {
+        console.log('started');
+    });
+    adm.addEventListener('loading:stop', () => {
+        console.log('stopped');
+    });
     document.getElementById('main').addEventListener('click', e => {
         e.stopPropagation();
         adm.close();

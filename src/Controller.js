@@ -6,9 +6,10 @@ const translate = T.getText.bind(T);
 const NOTIFY_TIMEOUT = 5000;
 
 class Controller extends EventTarget {
-    constructor({notify}) {
+    constructor({notify, loading}) {
         super();
-        this._notify = notify;        
+        this._notify = notify;  
+        this._loading = loading;      
     }
     _status(jsonResponse, response) {
         switch (response.status) {
@@ -38,14 +39,10 @@ class Controller extends EventTarget {
         }
     }
     _start() {
-        let event = document.createEvent('Event');
-        event.initEvent('load:start', false, false);
-        this.dispatchEvent(event);
+        this._loading.start();
     } 
     _stop() {
-        let event = document.createEvent('Event');
-        event.initEvent('load:stop', false, false);
-        this.dispatchEvent(event);
+        this._loading.stop();
     }
     httpPost (url, options, jsonResponse = true) {
         return new Promise(resolve => {
