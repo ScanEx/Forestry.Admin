@@ -202,7 +202,7 @@
     color: #FFF;
 }
 
-.scanex-component.scanex-component-dialog .organization {
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .organization {
     border-top: 1px solid #969595;
     font-family: Open Sans;
     font-style: normal;
@@ -217,23 +217,20 @@
     box-sizing: border-box;
 }
 
-.scanex-component.scanex-component-dialog .org .label {
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .org .label {
     font-weight: 700;
 }
 
-.scanex-component.scanex-component-dialog .itn {
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .itn {
     display: flex;
     flex-direction: row;
     width: 590px;
     justify-content: space-between;
 }
 
-.scanex-component.scanex-component-dialog .ogrn {
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .ogrn {
     display: flex;
     flex-direction: row;
     width: 590px;
     justify-content: space-between;
 }
-
-
-

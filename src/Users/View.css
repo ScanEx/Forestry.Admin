@@ -69,19 +69,10 @@
     -o-transition: background 0.33s ease;
     transition: background 0.33s ease;
 }
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 28px;
-    color: rgba(0, 0, 0, 0.6);
-    -webkit-transition: all 0.23s ease;
-    transition: all 0.23s ease;
-}
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]::-moz-placeholder {
-    /* Firefox 19+ */
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]::-webkit-input-placeholder,
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]::-moz-placeholder,
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:-ms-input-placeholder,
+.scanex-component.scanex-forestry-admin-users .name input[type="text"]:-moz-placeholder {    
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: normal;
@@ -90,44 +81,6 @@
     color: rgba(0, 0, 0, 0.6);
     -moz-transition: all 0.23s ease;
     transition: all 0.23s ease;
-}
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]:-ms-input-placeholder {
-    /* IE 10+ */
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 28px;
-    color: rgba(0, 0, 0, 0.6);
-    -ms-transition: all 0.23s ease;
-    transition: all 0.23s ease;
-}
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]:-moz-placeholder {
-    /* Firefox 18- */
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 28px;
-    color: rgba(0, 0, 0, 0.6);
-    -moz-transition: all 0.23s ease;
-    transition: all 0.23s ease;
-}
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: transparent;
-    /*display: none;*/
-}
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus::-moz-placeholder {
-    /* Firefox 19+ */
-    color: transparent;
-}
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus:-ms-input-placeholder {
-    /* IE 10+ */
-    color: transparent;
-}
-.scanex-component.scanex-forestry-admin-users .name input[type="text"]:focus:-moz-placeholder {
-    /* Firefox 18- */
     color: transparent;
 }
 .scanex-component.scanex-forestry-admin-users button.search {

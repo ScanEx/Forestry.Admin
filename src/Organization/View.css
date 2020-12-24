@@ -1,0 +1,133 @@
+.scanex-forestry-admin-organization {
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    width: 1160px;
+    height: 725px;
+    padding: 21px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.scanex-forestry-admin-organization ul.roles {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #000000;
+    margin-top: 60px;
+}
+.scanex-forestry-admin-organization ul.roles li {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.scanex-forestry-admin-organization ul.roles li>* {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.scanex-forestry-admin-organization .scanex-forestry-admin-icon.organization {
+    width: 130px;
+    height: 130px;
+}
+
+.scanex-forestry-admin-organization .label,
+.scanex-forestry-admin-organization .value {    
+    display: inline-block;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    height: 40px;
+    vertical-align: middle;
+}
+.scanex-forestry-admin-organization .label {
+    white-space: nowrap;
+    width: 200px;    
+    color: #000000;
+    text-align: left;    
+}
+.scanex-forestry-admin-organization .value {    
+    color: rgba(0, 0, 0, 0.65);
+    width: 580px;
+    text-align: right;    
+}
+
+.scanex-forestry-admin-organization .header {
+    cursor: pointer;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    color: #000000;
+    border-bottom: 1px solid #969595;
+    width: 100%;
+    display: block;
+    height: 60px;
+    min-height: 60px;
+    margin-bottom: 27px;
+}
+
+.scanex-forestry-admin-organization .content {
+    width: 100%;
+    padding-bottom: 43px;
+    border-bottom: 1px solid #969595;
+}
+.scanex-forestry-admin-organization .content .logo {
+    width: 300px;
+}
+.scanex-forestry-admin-organization .content .logo > * {
+    display: block;
+    margin-left: 90px;
+}
+.scanex-forestry-admin-organization .content > * {
+    display: inline-block;
+    vertical-align: top;
+}
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-organization .footer {
+    position: absolute;
+    bottom: 0;
+    height: 87px;
+    min-height: 87px;
+    border-top: 1px solid #969595;
+    width: 97%;
+    box-sizing: border-box;
+    left: 17px;
+    right: 17px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+}
+.scanex-forestry-admin-organization .footer button {
+    background: #067A57;
+    border-radius: 24px;
+    height: 48px;
+    min-height: 48px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    width: 227px;
+    min-width: 227px;
+    cursor: pointer;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    color: #FFF;
+}
+.scanex-forestry-admin-organization .footer button.save {    
+    margin: 0 23px;
+}

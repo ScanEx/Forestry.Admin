@@ -119,9 +119,9 @@ export default class View extends Component {
         const rows = this._content.querySelectorAll('[data-id]');
         for(let row of rows) {            
             row.addEventListener('click', e => {
-                e.stopPropagation();                
+                e.stopPropagation();
                 let event = document.createEvent('Event');
-                event.initEvent('user:select', false, false);                
+                event.initEvent('select', false, false);
                 event.detail = row.getAttribute('data-id');
                 this.dispatchEvent(event);
             });

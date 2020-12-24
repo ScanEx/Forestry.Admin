@@ -22,4 +22,8 @@ window.addEventListener('load', () => {
         e.stopPropagation();
         await adm.roles()
     });
+    document.getElementById('organizations').addEventListener('click', async e => {
+        e.stopPropagation();
+        await adm.organizations()
+    });
 });

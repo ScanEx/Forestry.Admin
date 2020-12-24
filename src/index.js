@@ -1,6 +1,8 @@
 import Roles from './Roles/Controller.js';
 import Users from './Users/Controller.js';
 import User from './User/Controller.js';
+import Organizations from './Organizations/Controller.js';
+import Organization from './Organization/Controller.js';
 import '@scanex/notify/dist/notify.css';
 import Notify from '@scanex/notify';
 import './index.css';
@@ -35,7 +37,16 @@ export default class Admin extends EventTarget {
         this._users.on('click', async e => {
             const id = e.detail;
             await this._user.open(id);
-        });        
+        });
+        this._organization = new Organization({container: this._container, notify: this._notify, loading: this._loading, path});
+        this._organization.on('updated', async () => {
+            await this.organizations();
+        });
+        this._organizations = new Organizations({container: this._container, notify: this._notify, loading: this._loading, path});
+        this._organizations.on('click', async e => {
+            const id = e.detail;
+            await this._organization.open(id);
+        });
     }    
     close() {
         this._container.innerHTML = '';
@@ -45,5 +56,8 @@ export default class Admin extends EventTarget {
     }
     async users() {
         await this._users.open();
+    }
+    async organizations() {
+        await this._organizations.open();
     }
 };

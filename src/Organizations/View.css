@@ -1,0 +1,135 @@
+.scanex-forestry-admin-organizations {
+    padding: 20px 40px 20px 40px;
+    background-color: #f2f2f2;
+}
+.scanex-forestry-admin-organizations .content {
+    height: calc(100vh - 316px);
+}
+.scanex-forestry-admin-organizations * {
+    box-sizing: border-box;
+}
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn {
+    margin-top: 35px;
+}
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div {
+    margin-right: 35px;
+}
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div:last-child {
+    margin-right: 0px;
+}
+.scanex-forestry-admin-organizations input[type=text],
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div select,
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div > label {
+    font-family: Open Sans;
+    font-style: normal;    
+    font-size: 18px;
+    line-height: 28px;    
+    color: #6B707B;
+    background-color: #F2F2F2;
+}
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div > label {
+    font-weight: 600;
+}
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn input,
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div select {
+    padding-left: 20px;
+}
+.scanex-forestry-admin-organizations .filter .name {
+    position: relative;    
+}
+.scanex-forestry-admin-organizations .filter .name i {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div select,
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div > input {
+    border: 1px solid #CCCCCC;    
+    border-radius: 24px;
+    height: 48px;
+    width: 350px;
+}
+.scanex-forestry-admin-organizations .content {
+    margin-top: 85px;
+}
+.scanex-forestry-admin-organizations .filter > div > *,
+.scanex-forestry-admin-organizations .content .header > div,
+.scanex-forestry-admin-organizations .content .body > .row > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.scanex-forestry-admin-organizations .filter .role-inn-ogrn > div > * {
+    display: block;
+}
+.scanex-forestry-admin-organizations .filter .name > input,
+.scanex-forestry-admin-organizations .filter .name > button {
+    border: 1px solid #CCCCCC;    
+    height: 48px;
+    border-radius: 24px;
+}
+.scanex-forestry-admin-organizations .filter .name input {
+    padding-left: 45px;
+    width: calc(100% - 130px);    
+}
+.scanex-forestry-admin-organizations .filter .name button {
+    background-color: #6B707B;    
+    width: 100px;
+    color: #FFFFFF;
+    border: none;
+}
+.scanex-forestry-admin-organizations .content .header > div,
+.scanex-forestry-admin-organizations .content .body > .row > div {    
+    font-family: Open Sans;
+    font-style: normal;
+    text-align: center;
+    padding: 20px;
+}
+.scanex-forestry-admin-organizations .content .header > div[data-id=id],
+.scanex-forestry-admin-organizations .content .body > .row > div[data-id=id] {
+    width: 120px;
+}
+.scanex-forestry-admin-organizations .content .header > div[data-id=okpf],
+.scanex-forestry-admin-organizations .content .body > .row > div[data-id=okpf] {
+    width: 200px;
+}
+.scanex-forestry-admin-organizations .content .header > div[data-id=name],
+.scanex-forestry-admin-organizations .content .body > .row > div[data-id=name] {
+    width: calc(100% - 950px);
+}
+.scanex-forestry-admin-organizations .content .header > div[data-id=role],
+.scanex-forestry-admin-organizations .content .body > .row > div[data-id=role] {
+    width: 200px;
+}
+.scanex-forestry-admin-organizations .content .header > div[data-id=inn],
+.scanex-forestry-admin-organizations .content .body > .row > div[data-id=inn] {
+    width: 200px;
+}
+.scanex-forestry-admin-organizations .content .header > div[data-id=ogrn],
+.scanex-forestry-admin-organizations .content .body > .row > div[data-id=ogrn] {
+    width: 200px;
+}
+.scanex-forestry-admin-organizations .content .header > div:first-child,
+.scanex-forestry-admin-organizations .content .body > .row > div:first-child {
+    text-align: left;
+}
+.scanex-forestry-admin-organizations .content .header > div:last-child,
+.scanex-forestry-admin-organizations .content .body > .row > div:last-child {
+    text-align: right;
+}
+
+.scanex-forestry-admin-organizations .content .header > div {    
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6B707B;
+    opacity: 0.65;
+}
+.scanex-forestry-admin-organizations .content .body .row > div {    
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+}
+.scanex-forestry-admin-organizations .content .body .row {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+}
