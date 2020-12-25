@@ -42,15 +42,16 @@
 .scanex-forestry-admin-eventlog .footer button.save {    
     margin: 0 23px;
 }
-.scanex-forestry-admin-eventlog .filter > div > * {
-    display: block;
-	font-weight: 600;
+
+.scanex-forestry-admin-eventlog .raw { 
+	margin-bottom: 20px;
 }
+
 .scanex-forestry-admin-eventlog label {    
     display: inline-block;
     font-family: Open Sans;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 16px;
     line-height: 28px;
     height: 40px;

@@ -12,12 +12,12 @@ export default class View extends Component {
     }
     _render(element) {
         element.classList.add('scanex-forestry-admin-eventlog');
-        element.innerHTML = `<div class="filter">
-			<div class="deps">
+        element.innerHTML = `<div>
+			<div class="raw">
 				<label>${translate('admin.eventlog.deps')}</label>
 				<div class="depsInput"></div>
 			</div>                
-			<div class="monthsSave">
+			<div class="raw">
 				<label>${translate('admin.eventlog.monthsSave')}</label>
 				<div class="monthsSaveInput"></div>
 			</div>                
