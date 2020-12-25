@@ -1,0 +1,65 @@
+.scanex-forestry-admin-eventlog {
+    padding: 21px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-eventlog .footer {
+    position: absolute;
+    bottom: 0;
+    height: 87px;
+    min-height: 87px;
+    border-top: 1px solid #969595;
+    width: 97%;
+    box-sizing: border-box;
+    left: 17px;
+    right: 17px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+}
+.scanex-forestry-admin-eventlog .footer button {
+    background: #067A57;
+    border-radius: 24px;
+    height: 48px;
+    min-height: 48px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    width: 227px;
+    min-width: 227px;
+    cursor: pointer;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    color: #FFF;
+}
+.scanex-forestry-admin-eventlog .footer button.save {    
+    margin: 0 23px;
+}
+
+.scanex-forestry-admin-eventlog .raw { 
+	margin-bottom: 20px;
+}
+
+.scanex-forestry-admin-eventlog label {    
+    display: inline-block;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    height: 40px;
+    vertical-align: middle;
+}
+.scanex-forestry-admin-eventlog .scanex-component-spinner input {
+    border: 1px solid #CCCCCC;
+    border-radius: 24px;
+	height: 28px;
+    width: 170px;
+}
