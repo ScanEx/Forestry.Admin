@@ -8,7 +8,7 @@ export default class Organization extends Controller {
     constructor({container, notify, loading, path}) {
         super({notify, loading});
         this._path = path;
-        this._container = container;        
+        this._container = container;
     }
     async open(id) {        
         const rs = await this.httpGet(`${this._path}/UserPermissionManager/GetRolesList`, {restrictRoles: true});

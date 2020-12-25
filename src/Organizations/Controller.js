@@ -2,11 +2,11 @@ import View from './View.js';
 import {Controller} from 'Controller.js';
 
 export default class Organizations extends Controller {
-    constructor({container, notify, loading, path}) {
+    constructor({container, notify, loading, path, pageSize}) {
         super({notify, loading});
         this._path = path;
         this._container = container;
-        this._pageSize = 9;
+        this._pageSize = pageSize;
     }
     async open() {
         const rs = await this.httpGet(`${this._path}/UserPermissionManager/GetRolesList`);

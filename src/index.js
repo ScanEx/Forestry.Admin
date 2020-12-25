@@ -28,8 +28,9 @@ export default class Admin extends EventTarget {
             event.initEvent('loading:stop', false, false);
             this.dispatchEvent(event);
         });
+        const pageSize = 9;
         this._roles = new Roles({container: this._container, notify: this._notify, loading: this._loading, path});        
-        this._users = new Users({container: this._container, notify: this._notify, loading: this._loading, path});
+        this._users = new Users({container: this._container, notify: this._notify, loading: this._loading, path, pageSize});
         this._user = new User({container: this._container, notify: this._notify, loading: this._loading, path});
         this._user.on('updated', async () => {
             await this.users();
@@ -42,7 +43,7 @@ export default class Admin extends EventTarget {
         this._organization.on('updated', async () => {
             await this.organizations();
         });
-        this._organizations = new Organizations({container: this._container, notify: this._notify, loading: this._loading, path});
+        this._organizations = new Organizations({container: this._container, notify: this._notify, loading: this._loading, path, pageSize});
         this._organizations.on('click', async e => {
             const id = e.detail;
             await this._organization.open(id);

@@ -43,8 +43,10 @@ export default class View extends Component {
                 <div data-id="ogrn">${translate('admin.organizations.ogrn')}</div>
             </div>
             <div class="body"></div>
-        </div>        
-        <div class="pager"></div>`;
+        </div> 
+        <div class="footer">       
+            <div class="pager"></div>
+        </div>`;
         const btnSearch = element.querySelector('.name button');
         btnSearch.addEventListener('click', e => {
             e.stopPropagation();
