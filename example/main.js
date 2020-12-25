@@ -26,4 +26,8 @@ window.addEventListener('load', () => {
         e.stopPropagation();
         await adm.organizations()
     });
+    document.getElementById('eventlog').addEventListener('click', async e => {
+        e.stopPropagation();
+        await adm.eventlog()
+    });
 });
