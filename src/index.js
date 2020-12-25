@@ -28,7 +28,7 @@ export default class Admin extends EventTarget {
             event.initEvent('loading:stop', false, false);
             this.dispatchEvent(event);
         });
-        const pageSize = 9;
+        const pageSize = 8;
         this._roles = new Roles({container: this._container, notify: this._notify, loading: this._loading, path});        
         this._users = new Users({container: this._container, notify: this._notify, loading: this._loading, path, pageSize});
         this._user = new User({container: this._container, notify: this._notify, loading: this._loading, path});

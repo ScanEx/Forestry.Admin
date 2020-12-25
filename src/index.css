@@ -22,3 +22,25 @@
 .scanex-forestry-admin .scanex-component-pager .last  {
     background-color:#6B707B;
 }
+/*BEGIN SCROLLBAR STYLES*/
+.scanex-forestry-admin .scrollable {
+    overflow-y: auto;
+    scrollbar-color: #6B707B #f3f3f3;
+    scrollbar-width: thin;
+    padding-right: 5px;
+}
+
+.scanex-forestry-admin .scrollable::-webkit-scrollbar-track {
+    background-color: #f3f3f3;
+}
+
+.scanex-forestry-admin .scrollable::-webkit-scrollbar {
+    width: 8px;
+    background-color: #6B707B;
+}
+
+.scanex-forestry-admin .scrollable::-webkit-scrollbar-thumb {
+    background-color: #6B707B;
+    border: 2px solid #6B707B;
+    border-radius: 10px;
+}

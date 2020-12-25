@@ -47,7 +47,10 @@
     width: 350px;
 }
 .scanex-forestry-admin-organizations .content {
-    margin-top: 85px;
+    margin-top: 10px;
+}
+.scanex-forestry-admin-organizations .content .body {
+    max-height: 450px;
 }
 .scanex-forestry-admin-organizations .filter > div > *,
 .scanex-forestry-admin-organizations .content .header > div,

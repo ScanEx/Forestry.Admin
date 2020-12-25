@@ -42,7 +42,7 @@ export default class View extends Component {
                 <div data-id="inn">${translate('admin.organizations.inn')}</div>
                 <div data-id="ogrn">${translate('admin.organizations.ogrn')}</div>
             </div>
-            <div class="body"></div>
+            <div class="body scrollable"></div>
         </div> 
         <div class="footer">       
             <div class="pager"></div>
