@@ -1,48 +1,36 @@
 import View from './View.js';
-import {Controller} from 'Controller.js';
+import {Controller, NOTIFY_TIMEOUT} from 'Controller.js';
+import T from '@scanex/translations';
+
+const translate = T.getText.bind(T);
 
 export default class Eventlog extends Controller {
     constructor({container, notify, loading, path}) {
         super({notify, loading});
+        this._notify = notify;
         this._path = path;
         this._container = container;
-        this._pageSize = 9;
+        this._shelfLife = 2;
+        this._versionCounts = 3;
     }
     async open() {
-        const rs = await this.httpGet(`${this._path}/UserPermissionManager/GetRolesList`);
-        if (rs && rs.rolesList) {
-            this._container.innerHTML = '';
-            this._view = new View(this._container, {pageSize: this._pageSize});
-            this._view.on('save', async e => {
-				console.log('save', e.detail);
-                const {deps, monthsSave} = e.detail;
-                // let opts = {
-                    // StartPoint: (page - 1) * this._pageSize + 1,
-                    // SizeList: this._pageSize,
-                    // FullName: encodeURIComponent(name) || '',
-                    // RoleId: role || '',
-                    // Inn: inn || '',
-                    // Ogrn: ogrn || '',
-                // };                
-                // const data = await this.httpGet(`${this._path}/BussinessEntityManager/GetBussinesEntityList`, opts);
-                // if (data) {
-                    // const {count, bussinesEntityList} = data;
-                    // this._view.count = count;
-                    // this._view.eventlog = bussinesEntityList;
-                    // if (filtered) {
-                        // this._view.page = 1;
-                    // }
-                // }
-            });
-            this._view.on('cancel', e => {
-				console.log('cancel', e.detail);
-                // let event = document.createEvent('Event');
-                // event.initEvent('click', false, false);
-                // event.detail = e.detail;
-                // this.dispatchEvent(event);
-            });            
-            this._view.page = 1;
-            // this._view.roles = rs.rolesList;
-        }
+		const data = await this.httpGet(`${this._path}/Log/GetLogsConstants`);
+
+		this._container.innerHTML = '';
+		this._view = new View(this._container, data);
+		this._view.on('save', async e => {
+			const ok = await this.httpPost(`${this._path}/Log/UpdateLogsConstants`, e.detail);
+			if (!ok) {
+				let event = document.createEvent('Event');
+				event.initEvent('eventlog:save', false, false);
+				this.dispatchEvent(event);
+				this._notify.info(translate('info.ok'), NOTIFY_TIMEOUT);
+			}
+		});
+		this._view.on('cancel', e => {
+			let event = document.createEvent('Event');
+			event.initEvent('close', false, false);            
+			this.dispatchEvent(event);
+		});            
     }
 }

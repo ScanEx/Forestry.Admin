@@ -6,20 +6,19 @@ import {Component, Spinner} from '@scanex/components';
 const translate = T.getText.bind(T);
 
 export default class View extends Component {
-    constructor(container, {pageSize}) {
-        super(container);
-        this._pageSize = pageSize;
+    constructor(container, {shelfLife, versionCounts}) {
+        super(container, {shelfLife, versionCounts});
     }
-    _render(element) {
+    _render(element, {shelfLife, versionCounts}) {
         element.classList.add('scanex-forestry-admin-eventlog');
         element.innerHTML = `<div>
 			<div class="raw">
-				<label>${translate('admin.eventlog.deps')}</label>
-				<div class="depsInput"></div>
+				<label>${translate('admin.eventlog.versionCounts')}</label>
+				<div class="versionCounts"></div>
 			</div>                
 			<div class="raw">
-				<label>${translate('admin.eventlog.monthsSave')}</label>
-				<div class="monthsSaveInput"></div>
+				<label>${translate('admin.eventlog.shelfLife')}</label>
+				<div class="shelfLife"></div>
 			</div>                
         </div>
 		<div class="footer">
@@ -28,31 +27,25 @@ export default class View extends Component {
 		</div>
 		`;
 		
-        const btnSave = element.querySelector('button.save');
-        btnSave.addEventListener('click', e => {
+        element.querySelector('button.save').addEventListener('click', e => {
             e.stopPropagation();
             this._save();
         });
-        const btnCancel = element.querySelector('button.cancel');
-        btnCancel.addEventListener('click', e => {
+        element.querySelector('button.cancel').addEventListener('click', e => {
             e.stopPropagation();
             this._cancel();
         });
 
-		this._depsSp = new Spinner(element.querySelector('.depsInput'));
-		this._depsSp.min = 1; this._depsSp.max = 20; this._depsSp.value = 5;
+		this._versionCounts = new Spinner(element.querySelector('.versionCounts'));
+		this._versionCounts.min = 1; this._versionCounts.max = 20; this._versionCounts.value = versionCounts;
 
-		this._monthsSaveSp = new Spinner(element.querySelector('.monthsSaveInput'));
-		this._monthsSaveSp.min = 1; this._monthsSaveSp.max = 12; this._monthsSaveSp.value = 1;
-		// depsSp.on('change', e => alert(`spinner: ${e.detail}`));
+		this._shelfLife = new Spinner(element.querySelector('.shelfLife'));
+		this._shelfLife.min = 1; this._shelfLife.max = 12; this._shelfLife.value = shelfLife ;
     }
     _save() {
         let event = document.createEvent('Event');
         event.initEvent('save', false, false);
-        const deps = this._depsSp.value;
-        const monthsSave = this._monthsSaveSp.value;
-
-        event.detail = {deps, monthsSave};
+        event.detail = {shelfLife: this._shelfLife.value, versionCounts: this._versionCounts.value};
         this.dispatchEvent(event);
     }
     _cancel() {
