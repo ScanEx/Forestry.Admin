@@ -10,7 +10,7 @@ T.addText('rus', {
             status: 'Статус',
             role: 'Роль',
             userRole: 'Роль пользователя',
-            dateAfter: 'Дата добавления (после)',
+            dateAfter: 'Дата добавления',
             blocked: 'Заблокирован',
             verified: 'Подтвержден',
             org: 'Организация',

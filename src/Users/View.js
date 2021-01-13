@@ -104,7 +104,7 @@ export default class View extends Component {
                 </tr>
             </thead>
             <tbody>
-            ${users.map(({userID, userName, created, isLock, organizationName, roleList}) => {
+            ${Array.isArray(users) && users.length && users.map(({userID, userName, created, isLock, organizationName, roleList}) => {
                 return `<tr data-id="${userID}">
                     <td>${userID}</td>
                     <td>${userName}</td>
