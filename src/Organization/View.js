@@ -117,24 +117,24 @@ export default class Organization extends Dialog {
         this._users = users;
         this._usersContainer.innerHTML = `<table cellpadding="0" cellspacing="0">
             <thead>
-                <tr>
-                    <th>${translate('admin.users.id')}</th>
-                    <th>${translate('admin.users.name')}</th>
-                    <th>${translate('admin.users.date')}</th>
-                    <th>${translate('admin.users.status')}</th>
-                    <th>${translate('admin.users.org')}</th>
-                    <th>${translate('admin.users.role')}</th>                    
+                <tr>                    
+                    <th>${translate('admin.user.lastName')}</th>
+                    <th>${translate('admin.user.firstName')}</th>
+                    <th>${translate('admin.user.middleName')}</th>
+                    <th>${translate('admin.user.email')}</th>
+                    <th>${translate('admin.user.phone')}</th>                    
+                    <th>${translate('admin.user.snils')}</th>
                 </tr>
             </thead>
             <tbody>
             ${Array.isArray(users) && users.length && users.map(({userID, lastName, firstName, middleName, email, phone, snils}) => {
                 return `<tr data-id="${userID}">
-                    <td>${lastName}</td>    
-                    <td>${firstName}</td>                    
-                    <td>${middleName}</td>
-                    <td>${email}</td>
-                    <td>${phone}</td>
-                    <td>${snils}</td>
+                    <td>${lastName || ''}</td>    
+                    <td>${firstName || ''}</td>                    
+                    <td>${middleName || ''}</td>
+                    <td>${email || ''}</td>
+                    <td>${phone || ''}</td>
+                    <td>${snils || ''}</td>
                 </tr>`;
             }).join('')}
             </tbody>

@@ -5,6 +5,9 @@ T.addText('rus', {
         user: {    
             title: 'Профиль пользователя',
             name: 'ФИО',
+            firstName: 'Имя',
+            middleName: 'Отчество',
+            lastName: 'Фамилия',
             dob: 'Дата рождения',
             email: 'Эл. почта',
             itn: 'ИНН',
