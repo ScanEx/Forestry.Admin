@@ -19,7 +19,7 @@ export default class Organization extends Controller {
             }, {});
             const data = await this.httpGet(`${this._path}/BussinessEntityManager/GetBussinesEntity`, {BussinesEntityID: id});
             if (data) {
-                const {address,fullName,id,inn,number,ogrn,okpof,roleID} = data;
+                const {address,fullName,id,inn,number,ogrn,okpof,roleID, users} = data;
                 let view = new View(id);
                 view.on('close', () => {
                    view.destroy();
@@ -44,6 +44,7 @@ export default class Organization extends Controller {
                 view.ogrn = ogrn;                
                 view.roles = roles;
                 view.role = roleID;
+                view.users = users;
             }    
         }
     }

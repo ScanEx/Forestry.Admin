@@ -35,7 +35,8 @@ export default class Organization extends Dialog {
                     <label class="label">${translate('admin.organization.address')}</label>
                     <label class="value"></label>
                 </div>                                    
-            </div>`;
+            </div>
+            <div class="users"></div>`;
         this._rolesContainer = this.content.querySelector('.roles');
 
         this._name = this.content.querySelector('.name .value');
@@ -43,6 +44,8 @@ export default class Organization extends Dialog {
         this._inn = this.content.querySelector('.inn .value');                
         this._ogrn = this.content.querySelector('.ogrn .value');
         this._address = this.content.querySelector('.address .value');
+
+        this._usersContainer = this.content.querySelector('.users');
 
         this.footer.innerHTML = `<button class="save">${translate('admin.organization.save')}</button>
         <button class="cancel">${translate('admin.organization.cancel')}</button>`;
@@ -109,5 +112,32 @@ export default class Organization extends Dialog {
                 this.role = row.getAttribute('data-id');                
             });
         }       
+    }
+    set users(users) {
+        this._users = users;
+        this._usersContainer.innerHTML = `<table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>${translate('admin.users.id')}</th>
+                    <th>${translate('admin.users.name')}</th>
+                    <th>${translate('admin.users.date')}</th>
+                    <th>${translate('admin.users.status')}</th>
+                    <th>${translate('admin.users.org')}</th>
+                    <th>${translate('admin.users.role')}</th>                    
+                </tr>
+            </thead>
+            <tbody>
+            ${Array.isArray(users) && users.length && users.map(({userID, lastName, firstName, middleName, email, phone, snils}) => {
+                return `<tr data-id="${userID}">
+                    <td>${lastName}</td>    
+                    <td>${firstName}</td>                    
+                    <td>${middleName}</td>
+                    <td>${email}</td>
+                    <td>${phone}</td>
+                    <td>${snils}</td>
+                </tr>`;
+            }).join('')}
+            </tbody>
+        </table>`;
     }
 };
