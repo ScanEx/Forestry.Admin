@@ -100,7 +100,7 @@
     bottom: 0;
     height: 87px;
     min-height: 87px;
-    border-top: 1px solid #969595;
+    /*border-top: 1px solid #969595;*/
     width: 97%;
     box-sizing: border-box;
     left: 17px;
@@ -131,3 +131,28 @@
 .scanex-forestry-admin-organization .footer button.save {    
     margin: 0 23px;
 }
+
+.scanex-forestry-admin-organization .users {
+    margin-top: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6B707B;
+    opacity: 0.65;
+    font-family: 'Open Sans';
+    width: 100%;
+}
+
+.scanex-forestry-admin-organization .users table {
+    width: 100%;
+    text-align: left;
+    padding: 0 23px;
+}
+
+.scanex-forestry-admin-organization .users table tr td {
+    font-weight: 400;
+    color: #000;
+    border-top: 10px solid #FFF;
+}
+
+
