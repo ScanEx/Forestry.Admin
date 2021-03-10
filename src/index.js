@@ -4,7 +4,7 @@ import User from './User/Controller.js';
 import Organizations from './Organizations/Controller.js';
 import Organization from './Organization/Controller.js';
 import Eventlog from './Eventlog/Controller.js';
-import '@scanex/notify/dist/notify.css';
+// import '@scanex/notify/dist/notify.css';
 import Notify from '@scanex/notify';
 import './index.css';
 import './icons.css';
@@ -33,9 +33,14 @@ export default class Admin extends Evented {
         this._roles = new Roles({container: this._container, notify: this._notify, loading: this._loading, path});        
         this._users = new Users({container: this._container, notify: this._notify, loading: this._loading, path, pageSize});
         this._user = new User({container: this._container, notify: this._notify, loading: this._loading, path});
-        this._user.on('updated', async () => {
-            await this.users();
-        });
+        this._user
+            .on('updated', async () => {
+                await this.users();
+            })
+            .on('logging', async () => {
+                this._user.close(); 
+                await this.eventlog();
+            });
         this._users.on('click', async e => {
             const id = e.detail;
             await this._user.open(id);

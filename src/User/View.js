@@ -84,6 +84,13 @@ export default class User extends Dialog {
                     <div class="value"></div>
                 </div>
             </div>
+        </div>
+        <div class="user-id">
+            <div>${translate('admin.user.id')}</div>
+            <div>
+                <span>${this._userID}</span>
+                <span class="user-logging">${translate('admin.user.logging')}</span>
+            </div>
         </div>`;
         let btnBlock = this.content.querySelector('.locked');
         btnBlock.addEventListener('click', e => {
@@ -124,6 +131,13 @@ export default class User extends Dialog {
         btnCancel.addEventListener('click', e => {
             let event = document.createEvent('Event');
             event.initEvent('close', false, false);
+            this.dispatchEvent(event);
+        });
+
+        const btnLogging = this.content.querySelector('.user-logging');
+        btnLogging.addEventListener('click', e => {
+            let event = document.createEvent('Event');
+            event.initEvent('logging', false, false);
             this.dispatchEvent(event);
         });
 

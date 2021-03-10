@@ -20,38 +20,46 @@ export default class User extends Controller {
             const data = await this.httpGet(`${this._path}/UserManager/GetUser`, {UserID: id});
             if (data && data.userData) {
                 const {birthDate, email, firstName, middleName, lastName, isLock, snils, businessEntity: {fullName, name, ogrn, inn}} = data.userData;
-                let view = new View(id);
-                view.on('close', () => {
-                   view.destroy();
-                   view = null;
-                });
-                view.on('save', async e => {
-                    view.destroy();
-                    view = null; 
-                    const {roles, locked} = e.detail;
-                    const ok = await this.httpPost(`${this._path}/UserManager/UpdateUser`, {userID: id, userRoles: roles, isLock: locked}, false);
-                    if (ok) {
-                        this._notify.info(translate('info.ok'), NOTIFY_TIMEOUT);
+                this._view = new View(id);
+                this._view
+                    .on('close', () => {
+                        this._view.destroy();
+                        this._view = null;
+                    })
+                    .on('save', async e => {                    
+                        const {roles, locked} = e.detail;
+                        const ok = await this.httpPost(`${this._path}/UserManager/UpdateUser`, {userID: id, userRoles: roles, isLock: locked}, false);
+                        if (ok) {
+                            this._notify.info(translate('info.ok'), NOTIFY_TIMEOUT);
+                            let event = document.createEvent('Event');
+                            event.initEvent('updated', false, false);
+                            this.dispatchEvent(event);
+                        }
+                    })
+                    .on('logging', e => {                        
                         let event = document.createEvent('Event');
-                        event.initEvent('updated', false, false);
+                        event.initEvent('logging', false, false);
                         this.dispatchEvent(event);
-                    }
-                });
-                view.name = `${lastName}, ${firstName} ${middleName}`;
-                view.birthDate = new Date(birthDate).toLocaleDateString();
-                view.email = email;
-                view.itn = inn;
-                view.org = fullName;
-                view.snils = snils;
-                view.ogrn = ogrn;
-                view.locked = isLock;
+                    });
+                this._view.name = `${lastName}, ${firstName} ${middleName}`;
+                this._view.birthDate = new Date(birthDate).toLocaleDateString();
+                this._view.email = email;
+                this._view.itn = inn;
+                this._view.org = fullName;
+                this._view.snils = snils;
+                this._view.ogrn = ogrn;
+                this._view.locked = isLock;
                 if (data.userRoles){                    
                     Object.keys(data.userRoles).forEach(id => {
                         roles[id].checked = true;
                     });
-                    view.roles = roles;
+                    this._view.roles = roles;
                 }
             }    
         }
+    }
+    close () {
+        this._view && this._view.destroy();
+        this._view = null;
     }
 };
