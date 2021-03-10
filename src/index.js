@@ -9,10 +9,10 @@ import Notify from '@scanex/notify';
 import './index.css';
 import './icons.css';
 import 'strings.js';
-import EventTarget from '@scanex/event-target';
+import Evented from '@scanex/evented';
 import Loading from 'Loading.js';
 
-export default class Admin extends EventTarget {
+export default class Admin extends Evented {
     constructor(container, {path} = {path: '/adm'}) {
         super();
         this._container = container; 

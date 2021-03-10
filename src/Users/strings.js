@@ -1,6 +1,6 @@
 import T from '@scanex/translations';
 
-T.addText('rus', {
+T.addText('ru', {
     admin: {        
         users: {
             search: 'Поиск',

@@ -1,6 +1,6 @@
-import EventTarget from '@scanex/event-target';
+import Evented from '@scanex/evented';
 
-export default class Loading extends EventTarget {
+export default class Loading extends Evented {
     constructor() {
         super();
     }

@@ -21,6 +21,10 @@
     justify-content: flex-start;
     align-items: center;
 }
+.scanex-forestry-admin-eventlog .constants-block > *,
+.scanex-forestry-admin-eventlog .user-id-block > * {
+    float: left;
+}
 .scanex-forestry-admin-eventlog .footer button {
     background: #067A57;
     border-radius: 24px;
@@ -62,4 +66,10 @@
     border-radius: 24px;
 	height: 28px;
     width: 170px;
+}
+.scanex-forestry-admin-eventlog .hidden {
+    display: none;
+}
+.scanex-forestry-admin-eventlog .user-role-block .raw {
+    cursor: pointer;
 }

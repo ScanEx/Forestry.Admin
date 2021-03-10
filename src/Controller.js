@@ -1,11 +1,11 @@
-import EventTarget from '@scanex/event-target';
+import Evented from '@scanex/evented';
 import T from '@scanex/translations';
 
 const translate = T.getText.bind(T);
 
 const NOTIFY_TIMEOUT = 5000;
 
-class Controller extends EventTarget {
+class Controller extends Evented {
     constructor({notify, loading}) {
         super();
         this._notify = notify;  

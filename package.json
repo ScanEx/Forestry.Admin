@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/ScanEx/Forestry.Admin#readme",
   "devDependencies": {
-    "@babel/cli": "^7.12.7",
-    "@babel/core": "^7.12.7",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^7.1.1",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@scanex/components": "git+https://github.com/Scanex/Components.git",
-    "@scanex/event-target": "git+https://github.com/Scanex/EventTarget.git",
+    "@scanex/evented": "git+https://github.com/Scanex/Evented.git",
     "@scanex/notify": "git+https://github.com/Scanex/Forestry.Notification.git",
     "@scanex/translations": "git+https://github.com/Scanex/Translations.git"
   }
