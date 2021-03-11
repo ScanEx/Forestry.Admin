@@ -298,6 +298,7 @@ i.scanex-component-icon.spinner-down {
 .scanex-forestry-admin-eventlog .roles-items {
     max-height: 200px;
     overflow-y: auto;
+    position: relative;
 }
 
 .scanex-forestry-admin-eventlog .user-info-block {
@@ -492,6 +493,7 @@ i.scanex-component-icon.spinner-down {
 .scanex-forestry-admin-eventlog .info-items {
     max-height: 245px;
     overflow-y: auto;
+    position: relative;
 }
 
 .scanex-forestry-admin-eventlog .user-role-block .raw {
