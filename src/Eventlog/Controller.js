@@ -12,14 +12,14 @@ export default class Eventlog extends Controller {
         this._container = container;
         this._shelfLife = 2;
         this._versionCounts = 3;		
-		this._pageSize = 20;
-		this._userID = '';
+		this._pageSize = 20;		
     }
-    async open() {
+    async open(userID) {
 		const logConstants = await this.httpGet(`${this._path}/Log/GetLogsConstants`);
 		if (logConstants) {
+			this._userID = userID || '';
 			this._container.innerHTML = '';
-			this._view = new View(this._container, {...logConstants, pageSize: this._pageSize});
+			this._view = new View(this._container, {...logConstants, userID: this._userID, pageSize: this._pageSize});
 			this._view.on('save', async e => {
 				const ok = await this.httpPost(`${this._path}/Log/UpdateLogsConstants`, e.detail);
 				if (!ok) {
@@ -47,6 +47,8 @@ export default class Eventlog extends Controller {
 			.on('info:change', async e => {				
 				await this._loadInfo(e.detail);
 			});
+
+			
 
 			await this._loadRoles(1);
 			await this._loadInfo(1);

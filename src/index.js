@@ -37,9 +37,9 @@ export default class Admin extends Evented {
             .on('updated', async () => {
                 await this.users();
             })
-            .on('logging', async () => {
+            .on('logging', async e => {
                 this._user.close(); 
-                await this.eventlog();
+                await this.eventlog(e.detail);
             });
         this._users.on('click', async e => {
             const id = e.detail;
@@ -72,7 +72,7 @@ export default class Admin extends Evented {
     async organizations() {
         await this._organizations.open();
     }
-    async eventlog() {
-        await this._eventlog.open();
+    async eventlog(userId) {
+        await this._eventlog.open(userId);
     }
 };

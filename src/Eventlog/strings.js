@@ -8,6 +8,8 @@ T.addText('ru', {
             userid: 'Идентификатор пользователя',                        
             find: 'Искать',
             apply: 'Применить',
+            yes: 'Да',
+            no: 'Нет',
             roles: {
                 title: 'Назначение роли',
                 actionDate: 'Время изменения',
@@ -29,7 +31,7 @@ T.addText('ru', {
                 middleName: 'Отчество',                
                 startPage: 'Начальная страница',
                 trusted: 'Доверенный',
-                verifying: 'Подтверждённый',
+                verifying: 'Подтверждённый',                
             },
         }
     }

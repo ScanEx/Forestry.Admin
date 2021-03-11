@@ -39,6 +39,7 @@ export default class User extends Controller {
                     .on('logging', e => {                        
                         let event = document.createEvent('Event');
                         event.initEvent('logging', false, false);
+                        event.detail = e.detail;
                         this.dispatchEvent(event);
                     });
                 this._view.name = `${lastName}, ${firstName} ${middleName}`;

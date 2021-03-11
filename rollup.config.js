@@ -22,7 +22,8 @@ export default [
             }),
             commonjs(),            
             css({dest: 'public/main.css', minified: false}),            
-            babel({                
+            babel({ 
+                babelHelpers: 'bundled',               
                 extensions: ['.js', '.mjs'],
                 exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
                 include: ['example/**', 'src/**']
@@ -46,7 +47,8 @@ export default [
             }),
             commonjs(),
             css({dest: 'dist/forestry-admin.css', minified: false}),            
-            babel({                
+            babel({     
+                babelHelpers: 'bundled',
                 extensions: ['.js', '.mjs'],
                 exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
                 include: ['src/**', 'node_modules/**']
