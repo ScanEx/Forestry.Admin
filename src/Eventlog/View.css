@@ -213,8 +213,10 @@ i.scanex-component-icon.spinner-down {
     font-size: 14px;
     line-height: 20px;
     color: #6B707B;
-    opacity: 0.65;
     margin-bottom: 23px;
+    position: absolute;
+    z-index: 1;
+    background: #F2F2F2;
 }
 
 .scanex-forestry-admin-eventlog .roles-header span:nth-child(1) {
@@ -260,6 +262,8 @@ i.scanex-component-icon.spinner-down {
     min-height: 32px;
     margin-bottom: 17px;
     padding-bottom: 10px;
+    position: relative;
+    top: 41px;
 }
 
 .scanex-forestry-admin-eventlog .roles-items-row span:nth-child(1) {
@@ -310,8 +314,10 @@ i.scanex-component-icon.spinner-down {
     font-size: 13px;
     line-height: 20px;
     color: #6B707B;
-    opacity: 0.65;
     margin-bottom: 23px;
+    position: absolute;
+    z-index: 1;
+    background: #F2F2F2;
 }
 
 .scanex-forestry-admin-eventlog .info-header span {
@@ -403,6 +409,8 @@ i.scanex-component-icon.spinner-down {
     min-height: 32px;
     margin-bottom: 17px;
     padding-bottom: 10px;
+    position: relative;
+    top: 67px;
 }
 
 .scanex-forestry-admin-eventlog .info-items-row span {
