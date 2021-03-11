@@ -121,6 +121,7 @@
     cursor: pointer;
     position: relative;
     top: 40px;
+    outline: none;
 }
 
 .scanex-component.scanex-component-spinner .buttons {
@@ -184,6 +185,8 @@ i.scanex-component-icon.spinner-down {
     position: relative;
     top: 55px;
     right: 123px;
+    cursor: pointer;
+    outline: none;
 }
 
 .scanex-forestry-admin-eventlog .user-role-block .raw label,
