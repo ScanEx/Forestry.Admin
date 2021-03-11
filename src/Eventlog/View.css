@@ -502,3 +502,11 @@ i.scanex-component-icon.spinner-down {
     margin-top: 20px;
     margin-bottom: 0;
 }
+
+.scanex-forestry-admin-eventlog .scanex-component.scanex-component-pager {
+    margin-top: 10px;
+}
+
+.scanex-forestry-admin-eventlog .scanex-component.scanex-component-pager button {
+    outline: none;
+}
