@@ -211,7 +211,7 @@ i.scanex-component-icon.spinner-down {
     line-height: 20px;
     color: #6B707B;
     opacity: 0.65;
-    margin-bottom: 43px;
+    margin-bottom: 23px;
 }
 
 .scanex-forestry-admin-eventlog .roles-header span:nth-child(1) {
@@ -254,8 +254,8 @@ i.scanex-component-icon.spinner-down {
     line-height: 24px;
     color: #000000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 50px;
-    margin-bottom: 23px;
+    min-height: 32px;
+    margin-bottom: 17px;
     padding-bottom: 10px;
 }
 
@@ -289,7 +289,7 @@ i.scanex-component-icon.spinner-down {
 }
 
 .scanex-forestry-admin-eventlog .roles-items {
-    max-height: 479px;
+    max-height: 200px;
     overflow-y: auto;
 }
 
@@ -308,7 +308,7 @@ i.scanex-component-icon.spinner-down {
     line-height: 20px;
     color: #6B707B;
     opacity: 0.65;
-    margin-bottom: 43px;
+    margin-bottom: 23px;
 }
 
 .scanex-forestry-admin-eventlog .info-header span {
@@ -397,8 +397,8 @@ i.scanex-component-icon.spinner-down {
     line-height: 24px;
     color: #000000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 50px;
-    margin-bottom: 23px;
+    min-height: 32px;
+    margin-bottom: 17px;
     padding-bottom: 10px;
 }
 
@@ -479,6 +479,15 @@ i.scanex-component-icon.spinner-down {
 }
 
 .scanex-forestry-admin-eventlog .info-items {
-    max-height: 490px;
+    max-height: 245px;
     overflow-y: auto;
+}
+
+.scanex-forestry-admin-eventlog .user-role-block .raw {
+    margin-bottom: 5px;
+}
+
+.scanex-forestry-admin-eventlog .user-info-block .raw {
+    margin-top: 20px;
+    margin-bottom: 0;
 }
