@@ -10,7 +10,7 @@ export default class View extends Component {
     constructor(container, options) {
         super(container, options);
     }
-    _render(element, {shelfLife, versionCounts, pageSize}) {
+    _render(element, {shelfLife, userID, versionCounts, pageSize}) {
         element.classList.add('scanex-forestry-admin-eventlog');
         element.innerHTML = `<div class="constants-block">
             <div class="constants-block-first">
@@ -28,7 +28,7 @@ export default class View extends Component {
         <div class="user-id-block">
             <div class="raw raw-first">
                 <label>${translate('admin.eventlog.userid')}</label>
-                <input type="text" class="user-id" value="" />
+                <input type="text" class="user-id" value="${userID}" />
             </div>
             <button class="find">${translate('admin.eventlog.find')}</button>
         </div>
@@ -64,14 +64,26 @@ export default class View extends Component {
 		this._shelfLife = new Spinner(element.querySelector('.shelfLife'));
 		this._shelfLife.min = 1; this._shelfLife.max = 12; this._shelfLife.value = shelfLife ;
 
-        this._useridContainer = element.querySelector('.user-id-block .user-id');
-
-        element.querySelector('.user-id-block button').addEventListener('click', e => {
-            e.stopPropagation();
+        
+        const findUserContainer = element.querySelector('.user-id-block .user-id');        
+        const findUserButton = element.querySelector('.user-id-block button');
+        const find = id => {
             let event = document.createEvent('Event');
             event.initEvent('find', false, false);
-            event.detail = this._useridContainer.value.trim();
+            event.detail = id;
             this.dispatchEvent(event);
+        };
+        findUserContainer.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.stopPropagation();                
+                const id = findUserContainer.value.trim();
+                find(id);
+            }
+        });
+        findUserButton.addEventListener('click', e => {
+            e.stopPropagation();
+            const id = findUserContainer.value.trim();
+            find(id);
         });
 
         this._rolesContainer = element.querySelector('.roles-container');
@@ -198,13 +210,14 @@ export default class View extends Component {
                 <span>${esiaUID}</span>
                 <span>${email}</span>
                 <span>${startPage}</span>
-                <span>${isLock}</span>
+                <span>${translate(`admin.eventlog.${isLock ? 'yes': 'no'}`)}</span>
                 <span>${firstName}</span>
                 <span>${middleName}</span>      
                 <span>${lastName}</span>                           
-                <span>${trusted}</span>
-                <span>${verifying}</span>
+                <span>${translate(`admin.eventlog.${trusted ? 'yes': 'no'}`)}</span>
+                <span>${translate(`admin.eventlog.${verifying ? 'yes': 'no'}`)}</span>
             </div>`;
         }).join('')}`;
     }
+    
 };
