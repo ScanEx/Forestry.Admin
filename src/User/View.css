@@ -74,9 +74,7 @@
     border-bottom: 34px solid transparent;
 }
 
-.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .content table
-
-.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .scanex-forestry-admin-icon.user {
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .content table .scanex-component.scanex-component-dialog.scanex-forestry-admin-user .scanex-forestry-admin-icon.user {
     width: 130px;
     height: 130px;
     border-radius: 100%;
@@ -215,6 +213,47 @@
     justify-content: space-between;
     padding-right: 25px;
     box-sizing: border-box;
+    padding-top: 17px;
+}
+
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .user-id {
+    border-top: 1px solid #969595;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 25px;
+    box-sizing: border-box;
+    padding-top: 17px;
+    margin-top: 50px;
+}
+
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .user-id .admin-user-id {
+    font-weight: 700;
+}
+
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .user-id .user-logging-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.scanex-component.scanex-component-dialog.scanex-forestry-admin-user .user-id .user-logging-row span.user-logging {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #17C5EB;
+    text-decoration-skip-ink: none;
+    cursor: pointer;
 }
 
 .scanex-component.scanex-component-dialog.scanex-forestry-admin-user .org .label {

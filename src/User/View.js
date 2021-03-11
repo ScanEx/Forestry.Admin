@@ -86,8 +86,8 @@ export default class User extends Dialog {
             </div>
         </div>
         <div class="user-id">
-            <div>${translate('admin.user.id')}</div>
-            <div>
+            <div class="admin-user-id">${translate('admin.user.id')}</div>
+            <div class="user-logging-row">
                 <span>${this._userID}</span>
                 <span class="user-logging">${translate('admin.user.logging')}</span>
             </div>

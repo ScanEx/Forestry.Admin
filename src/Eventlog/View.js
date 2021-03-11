@@ -13,18 +13,20 @@ export default class View extends Component {
     _render(element, {shelfLife, versionCounts, pageSize}) {
         element.classList.add('scanex-forestry-admin-eventlog');
         element.innerHTML = `<div class="constants-block">
-			<div class="raw">
+            <div class="constants-block-first">
+			 <div class="raw">
 				<label>${translate('admin.eventlog.versionCounts')}</label>
 				<div class="versionCounts"></div>
-			</div>                
-			<div class="raw">
+			 </div>                
+			 <div class="raw">
 				<label>${translate('admin.eventlog.shelfLife')}</label>
 				<div class="shelfLife"></div>
-			</div>                            
+			 </div>
+            </div>                            
             <button class="save">${translate('admin.eventlog.apply')}</button>
         </div>
         <div class="user-id-block">
-            <div class="raw">
+            <div class="raw raw-first">
                 <label>${translate('admin.eventlog.userid')}</label>
                 <input type="text" class="user-id" value="" />
             </div>
@@ -151,7 +153,7 @@ export default class View extends Component {
             <span>${translate('admin.eventlog.roles.status')}</span>            
         </div>
         ${roles.map(({actionDate,autor,role,status,userID}) => {
-            return `<div class="roles-items">
+            return `<div class="roles-items-row">
                 <span>${actionDate}</span>
                 <span>${autor}</span>
                 <span>${userID}</span>
@@ -189,7 +191,7 @@ export default class View extends Component {
             trusted,
             verifying,
         }) => {
-            return `<div class="roles-items">
+            return `<div class="info-items-row">
                 <span>${actionDate}</span>
                 <span>${autor}</span>
                 <span>${id}</span>
