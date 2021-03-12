@@ -51,5 +51,5 @@ export default class Users extends Controller {
             this._view.page = 1;
             this._view.roles = rs.rolesList;
         }
-    }
+    }    
 };

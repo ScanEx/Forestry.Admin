@@ -53,6 +53,13 @@ export default class View extends Component {
             this._change(true);
         });
         this._name = element.querySelector('.name input');
+        this._name.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                e.stopPropagation();
+                this._change(true);
+            }
+        });
         this._rolesContainer = element.querySelector('.role select');
         this._body = element.querySelector('.content .body');
         this._pager = new Pager(element.querySelector('.pager'));
@@ -60,7 +67,21 @@ export default class View extends Component {
             this._change(false);
         }); 
         this._inn = element.querySelector('.inn input');
+        this._inn.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                e.stopPropagation();
+                this._change(true);
+            }
+        });
         this._ogrn = element.querySelector('.ogrn input');
+        this._ogrn.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                e.stopPropagation();
+                this._change(true);
+            }
+        });
         this._pager.pages = 1;        
     }
     set page(page) {
@@ -78,7 +99,7 @@ export default class View extends Component {
         this.dispatchEvent(event);
     }
     set count(count) {
-        this._pager.pages = count && Math.ceil(count / this._pageSize) || 1;        
+        this._pager.pages = count && Math.floor (count / this._pageSize) + (count % this._pageSize ? 1 : 0); 
     }
     set roles(roles) {
         this._roles = roles;

@@ -10,6 +10,9 @@ window.addEventListener('load', () => {
     adm.addEventListener('loading:stop', () => {
         console.log('stopped');
     });
+    adm.addEventListener('eventlog:view', async e => {
+        await adm.eventlog(e.detail);
+    });
     document.getElementById('main').addEventListener('click', e => {
         e.stopPropagation();
         adm.close();

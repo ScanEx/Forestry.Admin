@@ -17,7 +17,7 @@ export default class View extends Component {
         element.classList.add('scanex-forestry-admin-users');
         element.innerHTML = `<div class="filter">
             <div class="name">
-                <input type="text" placeholder="${translate('admin.users.name')}">
+                <input class="search-text" type="text" placeholder="${translate('admin.users.name')}">
                 <button class="search">${translate('admin.users.search')}</button>
             </div>
             <div class="role-date-status">
@@ -41,6 +41,13 @@ export default class View extends Component {
         </div>        
         <div class="content"></div>        
         <div class="pager"></div>`;
+        const txtSearch = element.querySelector('.search-text');
+        txtSearch.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                e.stopPropagation();
+                this._change(true);
+            }
+        });
         const btnSearch = element.querySelector('.search');
         btnSearch.addEventListener('click', e => {
             e.stopPropagation();
@@ -67,10 +74,7 @@ export default class View extends Component {
                 weekdaysShort : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб']
             },
         }); 
-    }
-    set page(page) {
-        this._pager.page = page;
-    }
+    }    
     _change(filtered) {
         let event = document.createEvent('Event');
         event.initEvent('change', false, false);
@@ -82,8 +86,11 @@ export default class View extends Component {
         event.detail = {name, role, date: date && date.toISOString() || '', status, page, filtered};
         this.dispatchEvent(event);
     }
-    set count(count) {
-        this._pager.pages = count && Math.ceil(count / this._pageSize) || 1;        
+    set count(count) {        
+        this._pager.pages = count && Math.floor (count / this._pageSize) + (count % this._pageSize ? 1 : 0);
+    }
+    set page(page) {
+        this._pager.page = page;
     }
     set roles(roles) {
         this._roles = roles;

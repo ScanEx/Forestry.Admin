@@ -150,11 +150,17 @@ export default class View extends Component {
         event.detail = {};
         this.dispatchEvent(event);
     }
-    set rolePages(pages) {
-        this._rolesPager.pages = pages;
+    set rolePages(pages) {        
+        this._rolesPager.pages = pages;        
     }
-    set infoPages(pages) {
-        this._infoPager.pages = pages;
+    set rolePage(page) {                
+        this._rolesPager.page = page;
+    }
+    set infoPages(pages) {        
+        this._infoPager.pages = pages;                
+    }    
+    set infoPage(page) {
+        this._infoPager.page = page;
     }
     set roles(roles) {
         this._rolesItemsContainer.innerHTML = `<div class="roles-header">
@@ -172,7 +178,7 @@ export default class View extends Component {
                 <span>${role}</span>                
                 <span>${status}</span>                
             </div>`;
-        }).join('')}`;
+        }).join('')}`;        
     }
     set info(info) {
         this._infoItemsContainer.innerHTML = `<div class="info-header">                      
@@ -217,7 +223,6 @@ export default class View extends Component {
                 <span>${translate(`admin.eventlog.${trusted ? 'yes': 'no'}`)}</span>
                 <span>${translate(`admin.eventlog.${verifying ? 'yes': 'no'}`)}</span>
             </div>`;
-        }).join('')}`;
-    }
-    
+        }).join('')}`;        
+    }    
 };

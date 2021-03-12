@@ -37,9 +37,12 @@ export default class Admin extends Evented {
             .on('updated', async () => {
                 await this.users();
             })
-            .on('logging', async e => {
+            .on('eventlog:view', async e => {
                 this._user.close(); 
-                await this.eventlog(e.detail);
+                let event = document.createEvent('Event');
+                event.initEvent('eventlog:view', false, false);
+                event.detail = e.detail;
+                this.dispatchEvent(event);
             });
         this._users.on('click', async e => {
             const id = e.detail;
@@ -55,9 +58,10 @@ export default class Admin extends Evented {
             await this._organization.open(id);
         });
         this._eventlog = new Eventlog({container: this._container, notify: this._notify, loading: this._loading, path, pageSize});
-        this._eventlog.on('click', async e => {
-            const id = e.detail;
-            await this._eventlog.open(id);
+        this._eventlog.on('eventlog:save', e => {            
+            let event = document.createEvent('Event');
+            event.initEvent('eventlog:save', false, false);
+            this.dispatchEvent(event);
         });
     }    
     close() {

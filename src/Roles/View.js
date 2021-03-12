@@ -95,7 +95,8 @@ export default class View extends Component {
     }
     set permissions(permissions) {        
         this._permissions = permissions;
-        this._pager.pages = Math.ceil(Object.keys(permissions).length / this._pageSize);
+        const count = Object.keys(permissions).length;
+        this._pager.pages = count && Math.floor (count / this._pageSize) + (count % this._pageSize ? 1 : 0);        
         this._pager.page = 1;
     } 
     _changeRole() {

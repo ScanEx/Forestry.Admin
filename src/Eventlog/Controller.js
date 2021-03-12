@@ -12,7 +12,7 @@ export default class Eventlog extends Controller {
         this._container = container;
         this._shelfLife = 2;
         this._versionCounts = 3;		
-		this._pageSize = 20;		
+		this._pageSize = 20;
     }
     async open(userID) {
 		const logConstants = await this.httpGet(`${this._path}/Log/GetLogsConstants`);
@@ -47,9 +47,7 @@ export default class Eventlog extends Controller {
 			.on('info:change', async e => {				
 				await this._loadInfo(e.detail);
 			});
-
-			
-
+		
 			await this._loadRoles(1);
 			await this._loadInfo(1);
 		}
@@ -59,7 +57,8 @@ export default class Eventlog extends Controller {
 		if (userRolesLog) {
 			const {count, userRolesLogList} = userRolesLog;				
 			this._view.rolePages = Math.floor (count / this._pageSize) + (count % this._pageSize ? 1 : 0);
-			this._view.roles = userRolesLogList;
+			this._view.rolePage = Math.floor (start / this._pageSize) + (count % this._pageSize ? 1 : 0);
+			this._view.roles = userRolesLogList;			
 		}
 	}
 	async _loadInfo (start) {
@@ -67,6 +66,7 @@ export default class Eventlog extends Controller {
 		if (userInfoLog) {
 			const {count, userLogList} = userInfoLog;				
 			this._view.infoPages = Math.floor (count / this._pageSize) + (count % this._pageSize ? 1 : 0);
+			this._view.infoPage = Math.floor (start / this._pageSize) + (count % this._pageSize ? 1 : 0);
 			this._view.info = userLogList;
 		}
 	}

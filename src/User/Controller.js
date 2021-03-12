@@ -36,9 +36,9 @@ export default class User extends Controller {
                             this.dispatchEvent(event);
                         }
                     })
-                    .on('logging', e => {                        
+                    .on('eventlog:view', e => {                        
                         let event = document.createEvent('Event');
-                        event.initEvent('logging', false, false);
+                        event.initEvent('eventlog:view', false, false);
                         event.detail = e.detail;
                         this.dispatchEvent(event);
                     });

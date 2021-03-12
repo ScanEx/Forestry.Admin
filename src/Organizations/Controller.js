@@ -38,9 +38,9 @@ export default class Organizations extends Controller {
                 event.initEvent('click', false, false);
                 event.detail = e.detail;
                 this.dispatchEvent(event);
-            });            
-            this._view.page = 1;
+            });                        
             this._view.roles = rs.rolesList;
+            this._view.page = 1;
         }
     }
 }

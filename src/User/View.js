@@ -137,7 +137,7 @@ export default class User extends Dialog {
         const btnLogging = this.content.querySelector('.user-logging');
         btnLogging.addEventListener('click', e => {
             let event = document.createEvent('Event');
-            event.initEvent('logging', false, false);
+            event.initEvent('eventlog:view', false, false);
             event.detail = this._userID;
             this.dispatchEvent(event);
         });
