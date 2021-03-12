@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    padding-top: 0;
 }
 
 .scanex-component.scanex-component-dialog.scanex-forestry-admin-eventlog .footer {
@@ -52,7 +53,8 @@
 }
 
 .scanex-forestry-admin-eventlog .raw {
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
+    margin-bottom: 0;
 }
 
 .scanex-forestry-admin-eventlog label {
@@ -295,7 +297,7 @@ i.scanex-component-icon.spinner-down {
 }
 
 .scanex-forestry-admin-eventlog .roles-items {
-    max-height: 200px;
+    max-height: 145px;
     overflow-y: auto;
     position: relative;
 }
@@ -305,7 +307,7 @@ i.scanex-component-icon.spinner-down {
 }
 
 .scanex-forestry-admin-eventlog .info-header {
-    width: 1623px;
+    /*width: 1623px;*/
     display: flex;
     justify-content: flex-start;
     font-family: Open Sans;
@@ -397,7 +399,7 @@ i.scanex-component-icon.spinner-down {
 }
 
 .scanex-forestry-admin-eventlog .info-items-row {
-    width: 1623px;
+    /*width: 1623px;*/
     display: flex;
     justify-content: flex-start;
     font-family: Open Sans;
